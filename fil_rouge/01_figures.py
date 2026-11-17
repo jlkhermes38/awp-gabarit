@@ -1,14 +1,20 @@
 """Exo 1 : trois figures sur les prix des carburants."""
 
-import plotly.express as px  # noqa: F401
+import plotly.express as px
 
 from data import load_data
 
 df = load_data()
-print(df.shape)
 
-# 1. Le prix médian par carburant, route contre autoroute (px.bar, barmode="group")
+med = df.groupby(["carburant", "axe"], as_index=False)["prix"].median()
+px.bar(med, x="carburant", y="prix", color="axe", barmode="group",
+       title="Prix médian par carburant, route et autoroute").show()  # fmt: skip
 
-# 2. La carte des stations pour le gazole (px.scatter_map, n'oubliez pas center=)
+gazole = df[df["carburant"] == "GAZOLE"]
+px.scatter_map(
+    gazole, lat="lat", lon="lon", color="prix", hover_name="ville",
+    color_continuous_scale="cividis", zoom=7.6,
+    center={"lat": 47.92, "lon": 2.25},  # plotly 7 ne centre plus tout seul
+).show()  # fmt: skip
 
-# 3. La répartition des prix d'un carburant de votre choix (px.histogram)
+px.histogram(gazole, x="prix", nbins=25, title="Répartition des prix du gazole").show()

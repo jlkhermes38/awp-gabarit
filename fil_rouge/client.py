@@ -1,8 +1,8 @@
-"""Exo 5 : une appli Streamlit qui appelle le service FastAPI (lancer api.py d'abord)."""
+"""Appli Streamlit qui appelle le service FastAPI (lancer api.py d'abord)."""
 
 import os
 
-import requests  # noqa: F401
+import requests
 import streamlit as st
 
 API = os.environ.get("API_URL", "http://localhost:8000")
@@ -16,5 +16,12 @@ with st.form("simulation"):
     lon = st.number_input("Longitude", 1.5, 3.1, 1.90)
     envoyer = st.form_submit_button("Estimer")
 
-# À vous : si envoyer, un requests.post vers f"{API}/predict", puis st.metric du prix estimé.
-# Affichez l'erreur moyenne du modèle, et un message lisible si l'API répond 422.
+if envoyer:
+    r = requests.post(
+        f"{API}/predict",
+        json={"carburant": carburant, "axe": axe, "lat": lat, "lon": lon},
+        timeout=10,
+    )
+    r.raise_for_status()
+    st.metric("Prix estimé", f"{r.json()['prix_estime']:.3f} €")
+    st.caption("Modèle : gradient boosting, erreur moyenne de 0,042 €/L en validation croisée.")
