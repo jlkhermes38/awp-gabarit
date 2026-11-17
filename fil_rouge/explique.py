@@ -2,6 +2,7 @@
 
 shap et kaleido ne sont pas dans le projet :
 uv run --with shap --with kaleido python fil_rouge/explique.py
+kaleido peut échouer au premier lancement (« kaleido_scopes is not defined ») : relancez la commande.
 """
 
 from pathlib import Path
@@ -10,9 +11,9 @@ import joblib
 import pandas as pd
 import plotly.express as px
 import shap
-from figures import BLEU, habiller
 
 from data import load_data
+from figures import BLEU, habiller
 
 ICI, VARIABLES = Path(__file__).parent, ["couleur", "cadence", "ecart_elo", "heure"]
 df = load_data()
@@ -28,7 +29,10 @@ valeurs = pd.DataFrame(explicateur.shap_values(M), columns=noms)
 poids = pd.Series({v: valeurs.filter(regex=f"^{v}").sum(axis=1).abs().mean() for v in VARIABLES})
 poids = poids.sort_values()
 print(poids.round(3).to_string())
-titre = f"{poids.index[-1]} pèse le plus dans le modèle (SHAP moyen {poids.iloc[-1]:.2f}) : vrai effet ou bruit ?"
+shap_max = f"{poids.iloc[-1]:.2f}".replace(".", ",")
+titre = (
+    f"{poids.index[-1]} pèse le plus dans le modèle (SHAP moyen {shap_max}) : vrai effet ou bruit ?"
+)
 fig = px.bar(poids, orientation="h", color_discrete_sequence=[BLEU], title=titre)
 habiller(fig.update_layout(showlegend=False, xaxis_title=None, yaxis_title=None))
-fig.write_image(ICI / "explique.png", width=900, height=450)
+fig.write_image(ICI / "explique.png", width=900, height=450, scale=2)

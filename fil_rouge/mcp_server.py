@@ -1,4 +1,11 @@
-"""Serveur MCP : deux outils sur mes parties d'échecs. Ils appellent l'API (api.py doit tourner)."""
+"""Exo 6 : votre propre serveur MCP. Fin à 17h00.
+
+Question : un LLM doit pouvoir interroger mes parties.
+À produire : un serveur FastMCP de deux ou trois outils au-dessus de votre API (api.py doit
+tourner). Le LLM choisit un outil d'après son nom, sa docstring et ses arguments : soignez-les.
+Lancer : uv run python fil_rouge/mcp_server.py   (stdio : c'est le client LLM qui le lance,
+voir contexte/README.md pour le brancher)
+"""
 
 import os
 from typing import Literal

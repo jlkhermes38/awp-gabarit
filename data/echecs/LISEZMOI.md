@@ -43,7 +43,7 @@ Un `merge` sur `partie_id` répète les colonnes de `parties` sur chaque coup :
 
 Chess.com ne garde pas mon Elo d'avant la partie, il garde celui d'après. Lichess garde celui d'avant, avec la variation.
 Un modèle qui lit l'Elo d'après sur Chess.com « devine » le résultat : l'Elo monte quand je gagne et baisse quand je perds, il suffit de le comparer à la partie précédente.
-Sur mes parties blitz Chess.com, la variation d'Elo et le résultat ont une corrélation de 0,98, et un modèle entraîné sur toutes mes parties qui s'appuie là-dessus atteint une AUC de 0,71 qui triche : il ne prédit rien, il lit la réponse.
+Sur mes parties blitz Chess.com, la variation d'Elo et le résultat ont une corrélation de 0,98, et un modèle entraîné sur toutes mes parties avec l'écart d'Elo d'après la partie atteint une AUC de 0,71 qui triche : il ne prédit rien, il lit la réponse.
 J'ai donc reconstruit l'Elo d'avant la partie pour Chess.com avant de vous donner les fichiers (détail dans `parties.csv`).
 Les colonnes `elo_joueur` et `elo_adverse` sont maintenant des Elo **avant la partie** sur les deux plateformes, et `elo_joueur_apres` garde la valeur d'après si vous voulez la comparer.
 De même, dans `entrainement_ouvertures.csv`, j'ai converti les évaluations de pions en centipions, pour que le nom des colonnes dise la vérité.

@@ -1,13 +1,16 @@
-"""Probabilité de gagner une partie, à partir de la couleur, de la cadence, de l'écart d'Elo et de l'heure.
+"""Exo 5 : la probabilité de gagner une partie. Fin à 16h15.
 
-L'écart d'Elo est celui d'avant la partie (elo_adverse - elo_joueur) : jamais l'Elo d'après.
+Question : avec quelle couleur, à quelle cadence, à quelle heure ce joueur gagne-t-il le plus ?
+À produire : un modèle de classification scikit-learn, son erreur mesurée par validation croisée,
+une référence à battre (toujours prédire la fréquence de victoire), et model.joblib enregistré
+à côté de ce fichier (jamais versionné).
+Lancer : uv run python fil_rouge/train.py
 """
 
 import json
 from pathlib import Path
 
 import joblib
-from figures import fig_modele
 from sklearn.compose import make_column_transformer
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
@@ -16,6 +19,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from data import load_data
+from figures import fig_modele
 
 ICI = Path(__file__).parent
 df = load_data()

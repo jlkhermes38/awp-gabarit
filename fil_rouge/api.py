@@ -1,4 +1,11 @@
-"""Service FastAPI : mes parties, mes ouvertures, une probabilité de victoire."""
+"""Exo 5 : le service FastAPI. Fin à 16h15.
+
+Question : mes parties et mon modèle, derrière une API que n'importe quel client peut appeler.
+À produire : GET /parties, GET /ouvertures et POST /predict (corps validé par Pydantic).
+Le modèle est chargé une fois, au démarrage. Lancez train.py d'abord.
+Lancer : uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload
+Documentation interactive : http://127.0.0.1:8000/docs
+"""
 
 from pathlib import Path
 from typing import Literal

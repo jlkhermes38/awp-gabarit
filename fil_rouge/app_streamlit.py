@@ -1,8 +1,15 @@
-# uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1
+"""Exo 2 : l'appli Streamlit du fil rouge. Fin à 12h30.
+
+Question : l'appli que ce joueur ouvrirait chaque semaine pour savoir quoi travailler.
+À produire : une barre latérale (cadence, période, couleur), trois st.metric, deux figures
+en colonnes. Le titre de la page dit la question, pas « Dashboard ».
+Lancer : uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1
+"""
+
 import streamlit as st
-from figures import fig_familles, fig_phases, pct
 
 from data import load_coups, load_data
+from figures import fig_familles, fig_phases, pct
 
 st.set_page_config(page_title="Mes parties d'échecs", layout="wide")
 COULEURS = {"toutes": None, "blancs": "white", "noirs": "black"}

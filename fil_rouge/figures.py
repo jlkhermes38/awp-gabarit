@@ -136,7 +136,10 @@ if __name__ == "__main__":
     if (modele := Path(__file__).parent / "model.joblib").exists():
         figs["modele"] = fig_modele(df, joblib.load(modele))
     for nom, fig in figs.items():
-        fig.update_layout(width=900, height=520)
+        # le titre de fig_modele est long : il lui faut plus de largeur
+        fig.update_layout(
+            width=1400 if nom == "modele" else 900, height=560 if nom == "modele" else 520
+        )
         fig.write_html(
             out / f"{nom}.html", include_plotlyjs="cdn", config={"displayModeBar": False}
         )

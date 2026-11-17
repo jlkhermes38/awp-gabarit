@@ -1,11 +1,18 @@
-# uv run python fil_rouge/app_dash.py   (AWP_MCP=1 pour exposer les callbacks à un LLM sur /_mcp)
+"""Exo 4 : la même appli en Dash, avec un drill-down. Fin à 15h00.
+
+Question : quelles ouvertures coûtent des points, et dans quelles parties ?
+À produire : un clic sur une barre d'ouverture liste les parties, un clic sur une partie liste
+les coups jugés mauvais, dans deux AG Grid.
+Lancer : uv run python fil_rouge/app_dash.py   (http://127.0.0.1:8050)
+"""
+
 import os
 
 import dash_ag_grid as dag
 from dash import Dash, Input, Output, callback, dcc, html
-from figures import fig_familles
 
 from data import load_coups, load_data
+from figures import fig_familles
 
 df, coups = load_data(), load_coups()
 TIP, ESPACE = {"always_visible": True}, {"marginBottom": 45}  # place du tooltip sous le titre
@@ -18,6 +25,7 @@ def grille(id, champs):
     return dag.AgGrid(id=id, columnSize="sizeToFit", columnDefs=colonnes, dashGridOptions=options)
 
 
+# AWP_MCP=1 expose les callbacks à un LLM sur /_mcp
 app = Dash(__name__, title="Mes parties d'échecs", enable_mcp=os.environ.get("AWP_MCP") == "1")
 server = app.server  # Dash tourne sur Flask
 
@@ -52,7 +60,9 @@ def parties(click):
 def detail(rows):
     if not rows:
         return []
-    return coups[coups["partie_id"] == rows[0]["partie_id"]].fillna("").to_dict("records")
+    # astype(object) : fillna("") sur une colonne float lève un Pandas4Warning
+    vue = coups[coups["partie_id"] == rows[0]["partie_id"]].astype(object)
+    return vue.fillna("").to_dict("records")
 
 
 if __name__ == "__main__":

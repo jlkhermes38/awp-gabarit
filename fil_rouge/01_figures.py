@@ -1,14 +1,12 @@
 """Exo 1 : trois figures. Fin à 11h00.
 
 Question : où ce joueur perd-il des points ?
-Les figures sont construites dans figures.py (le titre est calculé, il dit ce que montrent
-les données) : l'appli de l'exo 2 et l'appli Dash les réutilisent.
+À produire : trois figures Plotly dont le titre dit ce qu'elles montrent.
 Lancer : uv run python fil_rouge/01_figures.py
 """
 
-from figures import fig_familles, fig_heures, fig_phases
-
 from data import load_coups, load_data
+from figures import fig_familles, fig_heures, fig_phases
 
 df, coups = load_data(), load_coups()
 print(df.shape, coups.shape)

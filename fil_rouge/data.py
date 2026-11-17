@@ -1,6 +1,8 @@
-"""Mes parties d'échecs : lecture des CSV du dépôt, validation, quelques colonnes calculées.
+"""Exo 1 : lire mes parties d'échecs. Fin à 11h00.
 
-Les colonnes et leurs pièges sont décrits dans data/echecs/LISEZMOI.md.
+Question : je joue depuis 2023, je stagne, qu'est-ce que je devrais travailler ?
+À produire : un DataFrame propre, prêt pour les figures de l'exo 1 et pour l'appli de l'exo 2.
+Les colonnes et leurs pièges sont dans data/echecs/LISEZMOI.md : lisez-le d'abord.
 Lancer : uv run python fil_rouge/data.py
 """
 

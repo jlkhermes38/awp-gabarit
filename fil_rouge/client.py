@@ -1,6 +1,10 @@
-"""Appli Streamlit « et si ? » qui appelle le service FastAPI (lancer api.py d'abord).
+"""Exo 5 : une appli Streamlit « et si ? » qui appelle votre API. Fin à 16h15.
 
-uv run streamlit run fil_rouge/client.py --server.address 127.0.0.1
+Question : et si je jouais plus tard, ou avec les noirs ?
+À produire : un formulaire (couleur, cadence, écart d'Elo, heure), un requests.post vers /predict,
+un st.metric, et un message lisible si l'API refuse la requête (422) ou ne répond pas.
+Lancez api.py d'abord.
+Lancer : uv run streamlit run fil_rouge/client.py --server.address 127.0.0.1
 """
 
 import json
