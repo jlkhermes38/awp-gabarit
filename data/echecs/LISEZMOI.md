@@ -1,7 +1,7 @@
 # Mes parties d'échecs : lisez-moi
 
 Ces onze fichiers sont mes propres parties, jouées de juillet 2023 à novembre 2026 sur Lichess et Chess.com, exportées de ChessXP.
-Les adversaires sont remplacés par un hash (`adv_384393ffd8`), et rien d'autre ne permet de les retrouver.
+Les adversaires sont remplacés par un hash (`adv_384393ffd8`). Ce hash protège peu : qui devine un pseudo peut le hacher et comparer, et chaque partie se retrouve sur la plateforme à sa date et à son Elo. Ces parties y sont publiques, je l'accepte.
 Le moteur d'échecs a analysé les parties et jugé mes coups, c'est ce qui donne les erreurs et les précisions du fichier.
 La question du jour : « je joue depuis 2023, je stagne, qu'est-ce que je devrais travailler ? »
 Vous n'avez pas besoin de savoir jouer, seulement de savoir lire un tableau et de vous méfier des pièges ci-dessous.
