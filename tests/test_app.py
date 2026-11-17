@@ -1,25 +1,28 @@
-from app_dash import detail
-from streamlit.testing.v1 import AppTest
+import pandas as pd
+
+import data
+
+PARTIES = ["partie_id", "date_jeu", "resultat", "cadence", "couleur", "elo_joueur", "elo_adverse"]
 
 
-def test_streamlit_demarre():
-    at = AppTest.from_file("../fil_rouge/app_streamlit.py", default_timeout=30).run()
-    assert not at.exception
+def test_csv_des_parties_se_lisent():
+    df = pd.read_csv(data.DATA / "parties.csv")
+    assert len(df) > 1000
+    assert set(PARTIES) <= set(df.columns)
+    assert df["partie_id"].is_unique
 
 
-def test_streamlit_filtre_carburant():
-    at = AppTest.from_file("../fil_rouge/app_streamlit.py", default_timeout=30).run()
-    at.selectbox[0].select("E10").run()
-    assert at.metric[2].label == "Stations"
-    assert int(at.metric[2].value) > 0
+def test_csv_des_coups_juges_se_lisent():
+    coups = pd.read_csv(data.DATA / "coups_juges.csv")
+    assert {"partie_id", "coup", "jugement", "phase"} <= set(coups.columns)
 
 
-def test_dash_detail_sans_clic():
-    lignes, titre = detail(None, "E10")
-    assert lignes == [] and titre == "Aucune commune sélectionnée"
+def test_load_data_une_ligne_par_partie():
+    df = data.load_data()
+    assert df["partie_id"].is_unique
+    assert df["score"].isin([0, 0.5, 1]).all()
 
 
-def test_dash_detail_apres_clic():
-    lignes, titre = detail({"points": [{"x": "Orléans"}]}, "E10")
-    assert titre == "Stations à Orléans"
-    assert all(ligne["ville"] == "Orléans" for ligne in lignes)
+def test_familles_pire_en_premier():
+    f = data.familles(data.load_data(), 30)
+    assert f["score"].is_monotonic_increasing

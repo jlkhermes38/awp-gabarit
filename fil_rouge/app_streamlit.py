@@ -1,47 +1,42 @@
-import plotly.express as px
+# uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1
 import streamlit as st
+from figures import fig_familles, fig_phases, pct
 
-from data import load_data
+from data import load_coups, load_data
 
-st.set_page_config(page_title="Carburants Loiret", layout="wide")
-
-
-@st.cache_data(ttl=600)
-def get_data():
-    return load_data()
+st.set_page_config(page_title="Mes parties d'échecs", layout="wide")
+COULEURS = {"toutes": None, "blancs": "white", "noirs": "black"}
 
 
-df = get_data()
+@st.cache_data
+def donnees():
+    return load_data(), load_coups()
 
-st.title("Où faire le plein dans le Loiret ?")
+
+df, coups = donnees()
+st.title("Je stagne aux échecs : qu'est-ce que je dois travailler ?")
 
 with st.sidebar:
-    options = sorted(df["carburant"].unique())
-    carburant = st.selectbox("Carburant", options, index=options.index("GAZOLE"), key="carburant")
-    villes = st.multiselect("Communes", sorted(df["ville"].unique()), key="communes")
+    cadences = st.multiselect("Cadence", sorted(df["cadence"].unique()), ["blitz"], key="cadence")
+    d0, d1 = df["date_jeu"].min().date(), df["date_jeu"].max().date()
+    periode = st.date_input("Période", (d0, d1), min_value=d0, max_value=d1, key="periode")
+    couleur = st.radio("Couleur", list(COULEURS), horizontal=True, key="couleur")
+    n_min = st.slider("Parties minimum par ouverture", 30, 60, 30, key="n_min")
 
-vue = df[df["carburant"] == carburant]
-if villes:
-    vue = vue[vue["ville"].isin(villes)]
+if len(periode) != 2:  # l'utilisateur n'a choisi que la première date
+    st.stop()
+vue = df[df["cadence"].isin(cadences) & df["date_jeu"].dt.date.between(*periode)]
+if COULEURS[couleur]:
+    vue = vue[vue["couleur"] == COULEURS[couleur]]
+if vue.empty:
+    st.warning("Aucune partie avec ces filtres.")
+    st.stop()
 
 c1, c2, c3 = st.columns(3)
-c1.metric("Prix médian", f"{vue['prix'].median():.3f} €")
-c2.metric("Le moins cher", f"{vue['prix'].min():.3f} €")
-c3.metric("Stations", len(vue))
+c1.metric("Parties", len(vue))
+c2.metric("Score", pct(vue["score"].mean()))
+c3.metric("Gaffes par partie", f"{vue['gaffes_joueur'].mean():.2f}")
 
-gauche, droite = st.columns([3, 2])
-with gauche:
-    fig = px.scatter_map(
-        vue,
-        lat="lat",
-        lon="lon",
-        color="prix",
-        hover_name="ville",
-        color_continuous_scale="cividis",
-        height=430,
-        zoom=7.6,
-        center={"lat": 47.92, "lon": 2.25},  # plotly 7 ne centre plus tout seul
-    )
-    st.plotly_chart(fig)
-with droite:
-    st.plotly_chart(px.histogram(vue, x="prix", nbins=20, height=430, title="Répartition des prix"))
+gauche, droite = st.columns(2)
+gauche.plotly_chart(fig_familles(vue, n_min), key="familles")
+droite.plotly_chart(fig_phases(coups[coups["partie_id"].isin(vue["partie_id"])]), key="phases")

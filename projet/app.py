@@ -1,4 +1,7 @@
-"""Vendredi : le point de départ de votre appli. Lancer avec : uv run streamlit run projet/app.py"""
+"""Vendredi : le point de départ de votre appli.
+
+Lancer : uv run streamlit run projet/app.py --server.address 127.0.0.1
+"""
 
 from pathlib import Path
 

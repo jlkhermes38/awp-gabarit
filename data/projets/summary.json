@@ -341,10 +341,5 @@
     "licence": "Licence Ouverte v2.0 (Etalab)",
     "note": "population municipale INSEE 325 communes (recensement 2023); 45 structures de santé et 15 lieux de covoiturage; canton = code INSEE du canton-ville (pas de libellé dans la source)",
     "period_note": "population 2014-2023; structures de santé mises à jour oct. 2025; covoiturage mis à jour janv. 2024"
-  },
-  "echecs": {
-    "status": "skipped",
-    "reason": "Not built: list_games (MCP ChessXP) is only callable from a Claude session, not scriptable, and returns no Elo, opponent Elo, move count or accuracy; the default window holds 127 games (30 days), not the 3 023. The full export from ChessXP is needed.",
-    "source_url": "https://platform.chessxp.com/game-history/"
   }
 }

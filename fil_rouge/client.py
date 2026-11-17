@@ -1,27 +1,35 @@
-"""Appli Streamlit qui appelle le service FastAPI (lancer api.py d'abord)."""
+"""Appli Streamlit « et si ? » qui appelle le service FastAPI (lancer api.py d'abord).
 
+uv run streamlit run fil_rouge/client.py --server.address 127.0.0.1
+"""
+
+import json
 import os
+from pathlib import Path
 
 import requests
 import streamlit as st
 
-API = os.environ.get("API_URL", "http://localhost:8000")
+API = os.environ.get("AWP_API_URL", "http://127.0.0.1:8000")
 
-st.title("Estimer le prix d'une station")
+st.title("Et si je jouais plus tard, ou avec les noirs ?")
 
 with st.form("simulation"):
-    carburant = st.selectbox("Carburant", ["GAZOLE", "E10", "SP95", "SP98", "E85", "GPLC"])
-    axe = st.radio("Axe", ["Route", "Autoroute"], horizontal=True)
-    lat = st.number_input("Latitude", 47.5, 48.4, 47.90)
-    lon = st.number_input("Longitude", 1.5, 3.1, 1.90)
+    couleur = st.radio("Couleur", ["white", "black"], horizontal=True)
+    cadence = st.selectbox("Cadence", ["blitz", "bullet", "rapid"])
+    ecart = st.number_input("Elo de l'adversaire moins le mien", -400, 400, 0)
+    heure = st.slider("Heure de la partie (UTC)", 0, 23, 20)
     envoyer = st.form_submit_button("Estimer")
 
 if envoyer:
-    r = requests.post(
-        f"{API}/predict",
-        json={"carburant": carburant, "axe": axe, "lat": lat, "lon": lon},
-        timeout=10,
-    )
+    corps = {"couleur": couleur, "cadence": cadence, "ecart_elo": ecart, "heure": heure}
+    r = requests.post(f"{API}/predict", json=corps, timeout=10)
     r.raise_for_status()
-    st.metric("Prix estimé", f"{r.json()['prix_estime']:.3f} €")
-    st.caption("Modèle : gradient boosting, erreur moyenne de 0,042 €/L en validation croisée.")
+    st.metric("Chances de victoire", f"{r.json()['proba_victoire']:.0%}")
+    mesures = Path(__file__).parent / "metriques.json"  # écrit par train.py
+    if mesures.exists():
+        m = json.loads(mesures.read_text())
+        st.caption(
+            f"Régression logistique, validation croisée : AUC {m['modele']['auc']:.2f} "
+            f"(référence {m['reference']['auc']:.2f}), exactitude {m['modele']['exactitude']:.0%}."
+        )

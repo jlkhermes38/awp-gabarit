@@ -1,20 +1,23 @@
-"""Exo 1 : trois figures sur les prix des carburants."""
+"""Exo 1 : trois figures. Fin à 11h00.
 
-import plotly.express as px
+Question : où ce joueur perd-il des points ?
+Les figures sont construites dans figures.py (le titre est calculé, il dit ce que montrent
+les données) : l'appli de l'exo 2 et l'appli Dash les réutilisent.
+Lancer : uv run python fil_rouge/01_figures.py
+"""
 
-from data import load_data
+from figures import fig_familles, fig_heures, fig_phases
 
-df = load_data()
+from data import load_coups, load_data
 
-med = df.groupby(["carburant", "axe"], as_index=False)["prix"].median()
-px.bar(med, x="carburant", y="prix", color="axe", barmode="group",
-       title="Prix médian par carburant, route et autoroute").show()  # fmt: skip
+df, coups = load_data(), load_coups()
+print(df.shape, coups.shape)
 
-gazole = df[df["carburant"] == "GAZOLE"]
-px.scatter_map(
-    gazole, lat="lat", lon="lon", color="prix", hover_name="ville",
-    color_continuous_scale="cividis", zoom=7.6,
-    center={"lat": 47.92, "lon": 2.25},  # plotly 7 ne centre plus tout seul
-).show()  # fmt: skip
+# 1. Le score par famille d'ouvertures, la pire en haut
+fig_familles(df).show()
 
-px.histogram(gazole, x="prix", nbins=25, title="Répartition des prix du gazole").show()
+# 2. La phase de la partie où tombent ses gaffes : ouverture, milieu, finale
+fig_phases(coups).show()
+
+# 3. Le score selon l'heure de la partie (heures UTC, au moins 30 parties par heure)
+fig_heures(df).show()

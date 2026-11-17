@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 data/cache/
+metriques.json
+courbe_modele.html
+explique.png
