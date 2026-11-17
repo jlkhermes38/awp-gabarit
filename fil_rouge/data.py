@@ -9,7 +9,9 @@ API = (
     "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/"
     "prix-des-carburants-en-france-flux-instantane-v2/records"
 )
-SNAPSHOT = Path(__file__).resolve().parents[1] / "data" / "carburants_45.csv"
+DATA = Path(__file__).resolve().parents[1] / "data"
+SNAPSHOT = DATA / "carburants_45.csv"  # versionné dans git, jamais réécrit
+CACHE = DATA / "cache" / "carburants_45.csv"  # copie du dernier appel réussi, hors git
 CARBURANTS = ["gazole", "e10", "sp95", "sp98", "e85", "gplc"]
 
 
@@ -52,14 +54,14 @@ def tidy(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_data() -> pd.DataFrame:
-    """L'API si elle répond, sinon le dernier instantané."""
+    """L'API si elle répond, sinon la dernière copie, sinon l'instantané du dépôt."""
     try:
         df = tidy(fetch())
-        SNAPSHOT.parent.mkdir(exist_ok=True)
-        df.to_csv(SNAPSHOT, index=False)
+        CACHE.parent.mkdir(exist_ok=True)
+        df.to_csv(CACHE, index=False)
         return df
     except requests.RequestException:
-        return pd.read_csv(SNAPSHOT)
+        return pd.read_csv(CACHE if CACHE.exists() else SNAPSHOT)
 
 
 if __name__ == "__main__":

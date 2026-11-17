@@ -5,3 +5,4 @@ __pycache__/
 *.joblib
 .pytest_cache/
 .ruff_cache/
+data/cache/
