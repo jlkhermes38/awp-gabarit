@@ -4,7 +4,7 @@
 
 ## D'où vient ce cas
 
-Les cas 1 et 2 viennent du Département du Loiret. Une directrice du Département, chef de projet « travailler avec l'IA », m'a envoyé le catalogue de données GéoLoiret et deux pistes : croiser les OLD avec le tracé des véloroutes, « Collèges et Risques ». Le catalogue : [geoloiret.loiret-numerique.fr](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm).
+Les cas 1 et 2 viennent du Département du Loiret. [Sandrine Gérard](https://www.linkedin.com/in/sandrine-g%C3%A9rard-562b8415b/), directrice au Département et chef de projet « travailler avec l'IA », m'a envoyé le catalogue de données GéoLoiret et deux pistes : croiser les OLD avec le tracé des véloroutes, « Collèges et Risques ». Le catalogue : [geoloiret.loiret-numerique.fr](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm).
 
 ## Le contexte
 
