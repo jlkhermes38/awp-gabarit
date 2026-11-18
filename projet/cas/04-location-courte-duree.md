@@ -65,8 +65,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : un prix conseillé selon l'arrondissement, la capacité et les avis
 - **LLM** : résumer les avis d'un arrondissement (50 avis au plus, texte nettoyé avant l'envoi)
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« Le prix médian par nuit va de 83 (8e Arrondissement) à 144 (2e Arrondissement) (n = 5 069 annonces avec prix, Lyon, septembre 2026) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. Le prix par voyageur baisse-t-il quand la capacité augmente ?
+2. Les annonces sans prix ont-elles encore des avis récents ?
+3. Combien de nuits par an une annonce est-elle occupée, selon l'arrondissement ?
+4. La note d'emplacement suit-elle le prix ?
+5. Les annonces réservables sans validation sont-elles mieux occupées ?
+6. Quels mots reviennent dans les avis des annonces les moins bien notées ?

@@ -66,8 +66,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : la probabilité qu'un accident soit grave selon le lieu, l'heure et la météo, et ce que ce modèle ne dit pas
 - **LLM** : une note de synthèse pour le préfet sur la commune choisie
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« Sur autoroute, 69 % des accidents sont graves. Les routes départementales en comptent bien plus : 674 contre 116 (n = 3 242 accidents, 2019-2025) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. La part d'accidents graves change-t-elle entre le jour et la nuit ?
+2. Quelles communes comptent le plus d'accidents graves sur sept ans ?
+3. Hors agglomération, les accidents graves se concentrent-ils sur certaines heures ?
+4. La pluie augmente-t-elle le nombre d'accidents, ou seulement leur gravité ?
+5. À quelle vitesse autorisée a lieu la majorité des accidents graves ?
+6. Le nombre d'accidents a-t-il retrouvé en 2025 son niveau de 2019 ?

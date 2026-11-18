@@ -64,8 +64,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : estimer le prix d'un bien selon la surface, le type et la commune : un formulaire « et si ? »
 - **LLM** : expliquer en clair l'écart entre un prix demandé et les ventes comparables
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« À Orléans, le prix médian est de 2 579 €/m² contre 1 800 € ailleurs dans le Loiret (n = 46 022 ventes, dont 9 130 à Orléans, 2021-2025) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. De combien le prix au m² a-t-il bougé entre 2021 et 2025, commune par commune ?
+2. Les petites surfaces sont-elles plus chères au m² ?
+3. Dans quelles communes une maison se vend-elle sous 1 500 €/m² ?
+4. Le nombre de ventes par an baisse-t-il depuis 2022 ?
+5. À surface égale, un grand terrain fait-il monter le prix d'une maison ?
+6. Dans Orléans, quelles sections cadastrales sont les plus chères ?

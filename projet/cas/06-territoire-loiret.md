@@ -60,8 +60,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : regrouper les communes qui se ressemblent (k-means sur la population, la distance aux soins et les équipements)
 - **LLM** : une fiche commune pour un élu, à partir des indicateurs affichés
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« 44 918 habitants (70 communes) vivent à plus de 10 km d'une structure de santé du Département (n = 325 communes, 691 268 habitants en 2023) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. Quelles communes ont perdu des habitants depuis 2014 ?
+2. Les communes à plus de 10 km des soins sont-elles petites ou moyennes ?
+3. Combien d'habitants par structure de santé, arrondissement par arrondissement ?
+4. Les aires de covoiturage sont-elles dans les communes denses ou rurales ?
+5. Les communes qui gagnent des habitants sont-elles loin des soins ?
+6. Où une seule nouvelle structure rapprocherait-elle le plus d'habitants ?

@@ -64,8 +64,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : prévoir la consommation de demain selon l'heure, le jour et la température
 - **LLM** : résumer la semaine filtrée en trois phrases pour un élu
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« En semaine, la consommation passe de 1731 MW à 4 h 30 à 2329 MW à 13 h 00 (n = 52 603 demi-heures, 09/2023 à 08/2026) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. Le creux de la nuit tombe-t-il à la même heure en hiver et en été ?
+2. Le week-end, de combien la consommation baisse-t-elle, heure par heure ?
+3. Quelles semaines de l'année ont le pic le plus haut ?
+4. Certains midis, le solaire couvre-t-il une grande part de la consommation ?
+5. À mois égal, consomme-t-on moins en 2026 qu'en 2024 ?
+6. Quand l'export vers les régions voisines est-il le plus faible ?

@@ -63,8 +63,13 @@ Des pistes, pas une liste à cocher : votre appli en soutient une ou deux, pour
 - **ML** : le risque qu'une commande arrive en retard, à l'achat
 - **LLM** : classer les motifs des avis négatifs (en portugais) en quelques catégories
 
-## Le constat déjà pris
+## Questions ouvertes sur les données
 
-« Le vendeur le plus en retard livre 25 % de ses articles hors délai, contre 8 % pour l'ensemble (n = 110 189 articles livrés, 2016-2018) »
+Des questions précises, à trancher avec le fichier, chiffres à l'appui. Les réponses ne sont pas données : c'est votre première exploration.
 
-C'est la figure de départ du cas. Trouvez-en deux autres.
+1. À partir de combien de jours de retard la note chute-t-elle ?
+2. Quels États clients attendent le plus longtemps leur colis ?
+3. Quelle part du prix représentent les frais de port, État par État ?
+4. Les vendeurs de São Paulo livrent-ils plus vite que les autres ?
+5. Les retards augmentent-ils en fin d'année (Black Friday, Noël) ?
+6. Quelles catégories reçoivent le plus de notes 1 ?
