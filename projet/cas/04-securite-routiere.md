@@ -1,4 +1,4 @@
-# Cas 5 · Sécurité routière dans le Loiret
+# Cas 4 · Sécurité routière dans le Loiret
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 

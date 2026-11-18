@@ -1,4 +1,4 @@
-# Cas 4 · Énergie en Centre-Val de Loire
+# Cas 3 · Énergie en Centre-Val de Loire
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 

@@ -47,7 +47,7 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 
 ## Vendredi, le projet
 
-- `data/projets/` : un ou deux Parquet par cas, neuf cas en tout, et des GeoJSON pour les cartes des cas 1 à 3. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
+- `data/projets/` : un ou plusieurs Parquet par cas, huit cas en tout, et des GeoJSON pour les cartes des cas 1 et 2. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
 - `projet/cas/` : **une page par cas** ([index](projet/cas/README.md)) : le contexte, qui décide quoi, les colonnes expliquées, les pièges et des questions métier possibles
 - `projet/app.py` : le point de départ, `uv run streamlit run projet/app.py --server.address 127.0.0.1`
 - `projet/llm.py` : un client compatible OpenAI (Ollama, Groq, Google AI Studio). Copiez `.streamlit/secrets.toml.example` en `.streamlit/secrets.toml`, jamais versionné
@@ -56,8 +56,7 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 | Cas | Fichier | Source | Licence |
 |---|---|---|---|
 | OLD et véloroutes | [`old_veloroutes.parquet`](data/projets/old_veloroutes.parquet) + 3 GeoJSON | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm) | Licence Ouverte 2.0, « Source : Département du Loiret » |
-| Collèges | [`colleges.parquet`](data/projets/colleges.parquet), [`colleges_secteurs.geojson`](data/projets/colleges_secteurs.geojson) | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [data.education.gouv.fr](https://data.education.gouv.fr) | Licence Ouverte 2.0 |
-| Risques | [`risques_communes.parquet`](data/projets/risques_communes.parquet), [`risques_catnat.parquet`](data/projets/risques_catnat.parquet), [`risques_communes.geojson`](data/projets/risques_communes.geojson) | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [Géorisques](https://www.georisques.gouv.fr/) | Licence Ouverte 2.0 |
+| Collèges et risques | [`colleges_risques.parquet`](data/projets/colleges_risques.parquet), avec `colleges`, `risques_communes`, `risques_catnat` et 2 GeoJSON | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [data.education.gouv.fr](https://data.education.gouv.fr), [Géorisques](https://www.georisques.gouv.fr/) | Licence Ouverte 2.0 |
 | Énergie | [`energie.parquet`](data/projets/energie.parquet) | [RTE, éCO2mix régional](https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-regional-cons-def/) | Licence Ouverte 2.0 |
 | Sécurité routière | [`securite_routiere.parquet`](data/projets/securite_routiere.parquet) | [ONISR, accidents corporels](https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/) | Licence Ouverte 2.0 |
 | Immobilier | [`immobilier.parquet`](data/projets/immobilier.parquet) | [DVF géolocalisées](https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/) | Licence Ouverte 2.0 |

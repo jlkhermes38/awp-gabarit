@@ -4,7 +4,7 @@
 
 ## D'où vient ce cas
 
-Les cas 1 à 3 viennent du Département du Loiret. Une directrice du Département, chef de projet « travailler avec l'IA », m'a envoyé le catalogue de données GéoLoiret et trois pistes : croiser les OLD avec le tracé des véloroutes, les collèges, les risques. Le catalogue : [geoloiret.loiret-numerique.fr](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm).
+Les cas 1 et 2 viennent du Département du Loiret. Une directrice du Département, chef de projet « travailler avec l'IA », m'a envoyé le catalogue de données GéoLoiret et deux pistes : croiser les OLD avec le tracé des véloroutes, « Collèges et Risques ». Le catalogue : [geoloiret.loiret-numerique.fr](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm).
 
 Je lui ai montré une première carte : la zone OLD et les véloroutes qui la traversent. Sa réponse, en substance : ce qui compte pour le Département, c'est le linéaire concerné et les communes, la surface à traiter une fois retirée l'emprise de la voie, et le couvert forestier, pour avoir une première idée de l'intensité des travaux (coupes d'arbres, élagages sévères). La décision : prioriser les communes et les tronçons les plus exposés au feu, parce que la forêt y est dense.
 
