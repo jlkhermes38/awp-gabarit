@@ -1,4 +1,4 @@
-# Cas 6 · Territoire du Loiret
+# Cas 9 · Territoire du Loiret
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 

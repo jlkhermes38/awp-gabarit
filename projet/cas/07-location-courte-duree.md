@@ -1,4 +1,4 @@
-# Cas 4 · Location courte durée à Lyon
+# Cas 7 · Location courte durée à Lyon
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 

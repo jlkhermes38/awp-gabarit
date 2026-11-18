@@ -1,4 +1,4 @@
-# Cas 3 · Immobilier autour d'Orléans
+# Cas 6 · Immobilier autour d'Orléans
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 

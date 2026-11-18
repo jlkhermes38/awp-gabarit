@@ -47,7 +47,7 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 
 ## Vendredi, le projet
 
-- `data/projets/` : un Parquet par cas, six cas en tout. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
+- `data/projets/` : un ou deux Parquet par cas, neuf cas en tout, et des GeoJSON pour les cartes des cas 1 à 3. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
 - `projet/cas/` : **une page par cas** ([index](projet/cas/README.md)) : le contexte, qui décide quoi, les colonnes expliquées, les pièges et des questions métier possibles
 - `projet/app.py` : le point de départ, `uv run streamlit run projet/app.py --server.address 127.0.0.1`
 - `projet/llm.py` : un client compatible OpenAI (Ollama, Groq, Google AI Studio). Copiez `.streamlit/secrets.toml.example` en `.streamlit/secrets.toml`, jamais versionné
@@ -55,6 +55,9 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 
 | Cas | Fichier | Source | Licence |
 |---|---|---|---|
+| OLD et véloroutes | [`old_veloroutes.parquet`](data/projets/old_veloroutes.parquet) + 3 GeoJSON | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm) | Licence Ouverte 2.0, « Source : Département du Loiret » |
+| Collèges | [`colleges.parquet`](data/projets/colleges.parquet), [`colleges_secteurs.geojson`](data/projets/colleges_secteurs.geojson) | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [data.education.gouv.fr](https://data.education.gouv.fr) | Licence Ouverte 2.0 |
+| Risques | [`risques_communes.parquet`](data/projets/risques_communes.parquet), [`risques_catnat.parquet`](data/projets/risques_catnat.parquet), [`risques_communes.geojson`](data/projets/risques_communes.geojson) | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [Géorisques](https://www.georisques.gouv.fr/) | Licence Ouverte 2.0 |
 | Énergie | [`energie.parquet`](data/projets/energie.parquet) | [RTE, éCO2mix régional](https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-regional-cons-def/) | Licence Ouverte 2.0 |
 | Sécurité routière | [`securite_routiere.parquet`](data/projets/securite_routiere.parquet) | [ONISR, accidents corporels](https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/) | Licence Ouverte 2.0 |
 | Immobilier | [`immobilier.parquet`](data/projets/immobilier.parquet) | [DVF géolocalisées](https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/) | Licence Ouverte 2.0 |
@@ -62,5 +65,4 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 | E-commerce | [`olist.parquet`](data/projets/olist.parquet), [`olist_commentaires_negatifs.parquet`](data/projets/olist_commentaires_negatifs.parquet) | [Olist sur Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) | CC BY-NC-SA 4.0 |
 | Territoire du Loiret | [`territoire_loiret.parquet`](data/projets/territoire_loiret.parquet) | [Département du Loiret](https://www.data.gouv.fr/organizations/departement-du-loiret/) | Licence Ouverte 2.0 |
 
-Un cas peut être pris par deux groupes, à condition que leurs décisions diffèrent. Vous pouvez aussi
-apporter votre propre jeu de données, validé au cadrage : licence, taille, aucune donnée personnelle.
+Un cas peut être pris par deux groupes, à condition que leurs décisions diffèrent. Vous pouvez aussi apporter votre propre jeu de données (licence qui permet la réutilisation, moins de 50 Mo, aucune donnée personnelle), ou des données de votre entreprise : l'accord écrit de votre tuteur, des données anonymisées, un dépôt GitHub privé partagé avec moi, et une URL publique qui ne montre qu'un échantillon anonymisé ou des données fictives de même forme. Aucune donnée d'entreprise n'est envoyée à une API de LLM externe sans accord : sinon, Ollama en local. Je valide au cadrage de vendredi 9h45.

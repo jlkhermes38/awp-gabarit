@@ -1,4 +1,4 @@
-# Cas 5 · E-commerce au Brésil
+# Cas 8 · E-commerce au Brésil
 
 [← les six cas](README.md) · [toutes les données](../../data/projets/LISEZMOI.md)
 
