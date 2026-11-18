@@ -47,19 +47,20 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 
 ## Vendredi, le projet
 
-- `data/projets/` : un Parquet par cas, six cas en tout. Sources, licences, périodes et une ligne d'exemple dans `summary.json`
+- `data/projets/` : un Parquet par cas, six cas en tout. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
+- `projet/cas/` : **une page par cas** ([index](projet/cas/README.md)) : le contexte, qui décide quoi, les colonnes expliquées, les pièges et des questions métier possibles
 - `projet/app.py` : le point de départ, `uv run streamlit run projet/app.py --server.address 127.0.0.1`
 - `projet/llm.py` : un client compatible OpenAI (Ollama, Groq, Google AI Studio). Copiez `.streamlit/secrets.toml.example` en `.streamlit/secrets.toml`, jamais versionné
 - `tests/test_app.py` : les tests du dépôt, `uv run pytest -q`
 
-| Cas | Fichier | Licence |
-|---|---|---|
-| Énergie | `energie.parquet` | Licence Ouverte 2.0 |
-| Sécurité routière | `securite_routiere.parquet` | Licence Ouverte 2.0 |
-| Immobilier | `immobilier.parquet` | Licence Ouverte 2.0 |
-| Location courte durée | `airbnb_lyon.parquet`, `airbnb_lyon_reviews.parquet` | CC BY 4.0 (Inside Airbnb) |
-| E-commerce | `olist.parquet`, `olist_commentaires_negatifs.parquet` | CC BY-NC-SA 4.0 (Olist) |
-| Territoire du Loiret | `territoire_loiret.parquet` | Licence Ouverte 2.0 |
+| Cas | Fichier | Source | Licence |
+|---|---|---|---|
+| Énergie | [`energie.parquet`](data/projets/energie.parquet) | [RTE, éCO2mix régional](https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-regional-cons-def/) | Licence Ouverte 2.0 |
+| Sécurité routière | [`securite_routiere.parquet`](data/projets/securite_routiere.parquet) | [ONISR, accidents corporels](https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/) | Licence Ouverte 2.0 |
+| Immobilier | [`immobilier.parquet`](data/projets/immobilier.parquet) | [DVF géolocalisées](https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/) | Licence Ouverte 2.0 |
+| Location courte durée | [`airbnb_lyon.parquet`](data/projets/airbnb_lyon.parquet), [`airbnb_lyon_reviews.parquet`](data/projets/airbnb_lyon_reviews.parquet) | [Inside Airbnb](https://insideairbnb.com/get-the-data/) | CC BY 4.0 |
+| E-commerce | [`olist.parquet`](data/projets/olist.parquet), [`olist_commentaires_negatifs.parquet`](data/projets/olist_commentaires_negatifs.parquet) | [Olist sur Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) | CC BY-NC-SA 4.0 |
+| Territoire du Loiret | [`territoire_loiret.parquet`](data/projets/territoire_loiret.parquet) | [Département du Loiret](https://www.data.gouv.fr/organizations/departement-du-loiret/) | Licence Ouverte 2.0 |
 
 Un cas peut être pris par deux groupes, à condition que leurs décisions diffèrent. Vous pouvez aussi
 apporter votre propre jeu de données, validé au cadrage : licence, taille, aucune donnée personnelle.
