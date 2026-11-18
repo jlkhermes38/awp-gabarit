@@ -3,3 +3,7 @@ gatherUsageStats = false
 
 [theme]
 font = "sans serif"
+
+[server]
+# API agent (partie 7) : un client MCP joint l'appli à <url>/_stcore/agent/mcp
+enableAgentApi = true
