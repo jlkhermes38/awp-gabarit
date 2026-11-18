@@ -115,5 +115,19 @@ Pour passer l'adresse de votre API au serveur : `-e AWP_API_URL=http://127.0.0.
 `claude mcp list` montre les serveurs connus, `claude mcp remove <nom>` en retire un.
 La doc complète : https://code.claude.com/docs/en/mcp.md
 
+### Local ou en ligne : qui peut joindre votre serveur ?
+
+Le client doit pouvoir joindre le serveur. Un client sur votre poste (Claude Code, Cursor, VS Code,
+Claude Desktop) joint `127.0.0.1` : rien à déployer, et c'est le seul cas où un serveur stdio marche.
+Un client dans le cloud (connecteurs de claude.ai, ChatGPT) se connecte depuis les serveurs de
+l'éditeur : il lui faut une URL publique en HTTPS, port 443. `127.0.0.1` et stdio n'y marchent jamais.
+
+- Votre serveur en HTTP : `MCP_TRANSPORT=http uv run python fil_rouge/mcp_server.py`, sur `http://127.0.0.1:8001/mcp`.
+- Pour une démo sans déployer, un tunnel donne une URL publique temporaire :
+  `MCP_TUNNEL=1 MCP_TRANSPORT=http uv run python fil_rouge/mcp_server.py`, puis `npx localtunnel --port 8001`
+  (`MCP_TUNNEL=1` : FastMCP accepte alors le nom d'hôte du tunnel).
+- Sur un hébergeur (Render, Cloud Run), la variable `PORT` est fixée : le serveur écoute alors sur `0.0.0.0:$PORT`.
+  Sans authentification, n'importe qui avec l'URL appelle vos outils.
+
 Un LLM choisit un outil d'après son nom, sa docstring et ses arguments. Si l'outil est mal choisi, relisez
 d'abord la docstring.
