@@ -41,7 +41,6 @@
       "jour_semaine": 4,
       "type_jour": "semaine"
     },
-    "figure_title": "En semaine, la consommation passe de 1731 MW à 4 h 30 à 2329 MW à 13 h 00 (n = 52 603 demi-heures, 09/2023 à 08/2026)",
     "source_url": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-regional-cons-def/",
     "licence": "Licence Ouverte v2.0 (Etalab)"
   },
@@ -113,7 +112,6 @@
       "atm_libelle": "Normale",
       "catr_libelle": "Voie communale"
     },
-    "figure_title": "Sur autoroute, 69 % des accidents sont graves. Les routes départementales en comptent bien plus : 674 contre 116 (n = 3 242 accidents, 2019-2025)",
     "source_url": "https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/",
     "licence": "Licence Ouverte v2.0 (Etalab)",
     "note": "grave = au moins un usager tué ou blessé hospitalisé (grav 2 ou 3)"
@@ -160,7 +158,6 @@
       "longitude": 2.659615,
       "latitude": 48.014077
     },
-    "figure_title": "À Orléans, le prix médian est de 2 579 €/m² contre 1 800 € ailleurs dans le Loiret (n = 46 022 ventes, dont 9 130 à Orléans, 2021-2025)",
     "source_url": "https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/",
     "licence": "Licence Ouverte v2.0 (Etalab)",
     "note": "ventes d'un seul logement (une mutation = une ligne), prix 10 k-2 M euros, 9-400 m2, 300-8000 euros/m2"
@@ -227,7 +224,6 @@
       "last_review": "2026-08-16",
       "last_scraped": "2026-09-19"
     },
-    "figure_title": "Le prix médian par nuit va de 83 (8e Arrondissement) à 144 (2e Arrondissement) (n = 5 069 annonces avec prix, Lyon, septembre 2026)",
     "source_url": "https://insideairbnb.com/get-the-data/",
     "licence": "Creative Commons Attribution 4.0 (CC BY 4.0)",
     "note": "prix_nuit renseigné pour 5069 annonces sur 9201; le fichier source écrit le prix avec un symbole $ sans préciser la devise",
@@ -282,7 +278,6 @@
       "retard": true,
       "review_score": 1.0
     },
-    "figure_title": "Le vendeur le plus en retard livre 25 % de ses articles hors délai, contre 8 % pour l'ensemble (n = 110 189 articles livrés, 2016-2018)",
     "source_url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
     "licence": "Creative Commons BY-NC-SA 4.0 (licence Olist sur Kaggle)",
     "note": "miroir sans login: Hugging Face bulutttt/olist-raw-data (fichiers identiques à Kaggle en noms et en tailles); retard = livré après la date estimée; seulement commandes livrées",
@@ -336,7 +331,6 @@
       "distance_soins_km": 0.6,
       "densite_hab_km2": 4234.2
     },
-    "figure_title": "44 918 habitants (70 communes) vivent à plus de 10 km d'une structure de santé du Département (n = 325 communes, 691 268 habitants en 2023)",
     "source_url": "https://www.data.gouv.fr/organizations/departement-du-loiret/",
     "licence": "Licence Ouverte v2.0 (Etalab)",
     "note": "population municipale INSEE 325 communes (recensement 2023); 45 structures de santé et 15 lieux de covoiturage; canton = code INSEE du canton-ville (pas de libellé dans la source)",
@@ -405,7 +399,6 @@
       "dnb_valeur_ajoutee": null,
       "source_dnb": "dnb-par-etablissement"
     },
-    "figure_title": "Entre 2019 et 2025, 27 collèges publics du Loiret ont gagné des élèves et 29 en ont perdu (30 419 puis 30 407 élèves au total, n = 56 collèges publics présents aux deux rentrées)",
     "source_url": "https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm (collèges publics et privés: https://geoloiret.loiret-numerique.fr/ags25/rest/services/III_2_Batiment/ETABLISSEMENTS_SCOLAIRES/FeatureServer/4; secteurs: https://geoloiret.loiret-numerique.fr/ags25/rest/services/III_11_Zones_Gestion/SECTORISATION_EDUCATION/FeatureServer/3) ; https://data.education.gouv.fr/explore/dataset/fr-en-college-effectifs-niveau-sexe-lv/ ; https://data.education.gouv.fr/explore/dataset/fr-en-ips_colleges/ ; https://data.education.gouv.fr/explore/dataset/fr-en-ips-colleges-ap2022/ ; https://data.education.gouv.fr/explore/dataset/fr-en-ips-colleges-ap2023/ ; https://data.education.gouv.fr/explore/dataset/fr-en-dnb-par-etablissement/ ; https://data.education.gouv.fr/explore/dataset/fr-en-indicateurs-valeur-ajoutee-colleges/",
     "licence": "Licence Ouverte v2.0 (Etalab) pour les jeux du ministère; GéoLoiret: licence indiquée sur les fiches du catalogue du Département",
     "note": "70 collèges (58 publics) x 10 rentrées; jointure sur le code UAI; geojson des secteurs: colleges_secteurs.geojson (59 secteurs, clé secteur_id = UAI)",
@@ -470,7 +463,6 @@
       "lat": 47.62609,
       "lon": 2.36689
     },
-    "figure_title": "55 km de véloroutes sur 324 traversent la zone OLD : 93 ha à débroussailler (10 m de chaque côté, emprise de la voie retirée), dont 37 ha en forêt fermée. Cerdon en concentre 29 %",
     "source_url": "https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/30f4e50565cd46b894a2a37c7973f3fa ; https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/194fd0fef6ac4f23abec83e726fee9d1 ; https://geoloiret.loiret-numerique.fr/ags25/rest/services/I_7_Reseaux_Transports/VELOROUTE/FeatureServer/4 ; https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/f50797014a9d427db5a33c3eaa239e84 ; https://geoloiret.loiret-numerique.fr/ags25/rest/services/III_12_Zones_a_risque_naturel/FORET_BOIS_CLASSES_RISQUE_INCENDIE/FeatureServer/44 ; https://geoloiret.loiret-numerique.fr/ags25/rest/services/V-BDTOPO/LIMITES_ADMINISTRATIVES45/FeatureServer/3 ; https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-TOPO",
     "licence": "Zonage OLD, bois classés: Licence Ouverte Etalab 2.0 (fiches GéoLoiret, mention « Source : DDT »). Véloroutes: la fiche GéoLoiret ne nomme pas de licence, elle dit « usage libre sous réserve de mentionner Source : Département du Loiret - année ». Communes (BD TOPO sur GéoLoiret) et végétation (BD TOPO IGN, Géoplateforme): Licence Ouverte 2.0 selon la politique open data de l'IGN, à revérifier sur la page produit.",
     "note": "1564 lignes = tronçons de véloroute × commune (1473 tronçons). Surfaces : hypothèses (bande, emprise, niveau d'intervention par nature de végétation), voir assumptions. Géométries : old_zone.geojson, old_veloroutes.geojson, old_communes.geojson (WGS 84, simplifiés).",
@@ -583,7 +575,6 @@
       "lat": 47.88226,
       "lon": 1.91661
     },
-    "figure_title": "La sécheresse motive 874 des 2 065 reconnaissances de catastrophe naturelle des communes du Loiret, dont 336 depuis 2016 (n = 2 065 décisions pour 325 communes, 1983-2025)",
     "source_url": "GéoLoiret (https://geoloiret.loiret-numerique.fr, catalogue https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0): argiles RGA, cavités, mouvements de terrain (BRGM), PPRI (DDT 45), repères de crues, ICPE, TMD, centrales, collèges; Géorisques GASPAR (https://www.data.gouv.fr/datasets/base-nationale-de-gestion-assistee-des-procedures-administratives-relatives-aux-risques-gaspar, export https://files.georisques.fr/GASPAR/gaspar.zip, API https://www.georisques.gouv.fr/doc-api); population: cas territoire_loiret (INSEE)",
     "licence": "Licence Ouverte v2.0 (Etalab), vérifiée sur les fiches GéoLoiret (mention: Source: BRGM / DDT45 / Département du Loiret - année) et sur la fiche data.gouv.fr de GASPAR (licence ouverte)",
     "note": "325 communes; 2065 décisions CatNat (165 arrêtés) du 1983-04-01 au 2025-03-24; 3571 cavités, 3405 mouvements de terrain, 1317 ICPE; fichiers liés: risques_catnat.parquet (format long, 1 ligne par arrêté × commune × péril) et risques_communes.geojson (contours simplifiés, clé id = code INSEE)",

@@ -16,7 +16,7 @@ Chaque accident corporel (au moins une victime) fait l'objet d'une fiche remplie
 |---|---|
 | Fichier | [`securite_routiere.parquet`](../../data/projets/securite_routiere.parquet) ([télécharger](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/securite_routiere.parquet)) |
 | Lignes | 3 242 accidents, un par ligne |
-| Période | 01/01/2019 → 31/12/2025 (616 en 2019, 413 en 2025) |
+| Période | 01/01/2019 → 31/12/2025 |
 | Source | [ONISR, bases annuelles des accidents corporels (BAAC)](https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/) : la page donne aussi la description de chaque code |
 | Licence | Licence Ouverte 2.0 (Etalab) : citer « ONISR, fichier BAAC » |
 
@@ -44,7 +44,7 @@ df = pd.read_parquet("data/projets/securite_routiere.parquet")
 ## À savoir avant de commencer
 
 - les colonnes `int`, `col`, `surf` et `circ` sont des codes : traduisez ceux que vous affichez, avec la description de l'ONISR
-- le taux dit où c'est grave, le nombre dit où agir : 69 % de graves sur autoroute, mais 116 accidents graves contre 674 sur les départementales
+- le taux dit où c'est grave, le nombre dit où agir : une route peut avoir beaucoup d'accidents graves en proportion et peu en nombre. Montrez les deux
 - 2020 est une année de confinement : comparer 2019 et 2020 ne dit rien de la prévention
 - un modèle qui prédit la gravité ne dit pas où placer un contrôle : gardez la décision en tête
 - le fichier ne contient aucune donnée sur les personnes : seulement des nombres de victimes

@@ -73,8 +73,8 @@ fig = px.choropleth_map(df, geojson=communes, locations="code_insee", color="pct
 - un aléa n'est pas un risque : une commune rurale peut être à 100 % en aléa argiles moyen avec peu de maisons. Croisez avec la population
 - un périmètre de PPRI n'est pas la zone inondable : c'est le territoire que couvre le plan
 - la couche des argiles est incomplète : pour 19 communes, moins de la moitié de la surface a une classe. « 0 % fort » peut vouloir dire « non cartographié »
-- les cavités sont recensées là où l'on habite (Orléans en compte 699) : rapportez-les à la population ou à la surface, jamais en nombre brut
-- un arrêté CatNat suppose que le maire l'ait demandé : les comptes disent la procédure autant que la catastrophe. La tempête de décembre 1999 pèse 651 décisions à elle seule
+- les cavités sont recensées là où l'on habite : rapportez-les à la population ou à la surface, jamais en nombre brut
+- un arrêté CatNat suppose que le maire l'ait demandé : les comptes disent la procédure autant que la catastrophe. Une seule tempête peut produire des centaines de décisions
 - les ICPE comptent aussi des élevages, des carrières et des éoliennes : un nombre d'ICPE n'est pas un risque industriel
 
 ## Questions métier possibles

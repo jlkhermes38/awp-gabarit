@@ -6,7 +6,7 @@
 
 Les cas 1 à 3 viennent du Département du Loiret. Une directrice du Département, chef de projet « travailler avec l'IA », m'a envoyé le catalogue de données GéoLoiret et trois pistes : croiser les OLD avec le tracé des véloroutes, les collèges, les risques. Le catalogue : [geoloiret.loiret-numerique.fr](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm).
 
-Je lui ai montré une première démo (55 km de véloroutes sur 324 traversent la zone OLD). Sa réponse, en substance : ce qui compte pour le Département, c'est le linéaire concerné et les communes, la surface à traiter une fois retirée l'emprise de la voie, et le couvert forestier, pour avoir une première idée de l'intensité des travaux (coupes d'arbres, élagages sévères). La décision : prioriser les communes et les tronçons les plus exposés au feu, parce que la forêt y est dense.
+Je lui ai montré une première carte : la zone OLD et les véloroutes qui la traversent. Sa réponse, en substance : ce qui compte pour le Département, c'est le linéaire concerné et les communes, la surface à traiter une fois retirée l'emprise de la voie, et le couvert forestier, pour avoir une première idée de l'intensité des travaux (coupes d'arbres, élagages sévères). La décision : prioriser les communes et les tronçons les plus exposés au feu, parce que la forêt y est dense.
 
 ## Le contexte
 
@@ -21,7 +21,7 @@ Dans les massifs classés à risque d'incendie, le code forestier impose de déb
 | | |
 |---|---|
 | Fichiers | [`old_veloroutes.parquet`](../../data/projets/old_veloroutes.parquet) ([télécharger](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_veloroutes.parquet)), [`old_veloroutes.geojson`](../../data/projets/old_veloroutes.geojson) ([télécharger](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_veloroutes.geojson)), [`old_communes.geojson`](../../data/projets/old_communes.geojson) ([télécharger](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_communes.geojson)), [`old_zone.geojson`](../../data/projets/old_zone.geojson) ([télécharger](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_zone.geojson)) |
-| Lignes | 1 564 morceaux de tronçon (un tronçon × une commune) ; 324,2 km de véloroutes, dont 54,8 km dans la zone OLD |
+| Lignes | 1 564 morceaux de tronçon (un tronçon × une commune) |
 | Période | tracés de novembre 2025, zonage OLD de février 2026 |
 | Source | GéoLoiret : [zonage OLD](https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/30f4e50565cd46b894a2a37c7973f3fa), [tracés des véloroutes](https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/194fd0fef6ac4f23abec83e726fee9d1), [bois classés à risque incendie](https://open.isogeo.com/s/1742fb942d7b4756b9778c3b3cbc992e/HWglEr-z4Bry_rKQOTINX9gAH4Yu0/r/f50797014a9d427db5a33c3eaa239e84) ; IGN, BD TOPO (végétation et eau) |
 | Licence | zonage OLD et bois classés : Licence Ouverte 2.0 (« Source : DDT41 »). Tracés des véloroutes : usage libre avec la mention « Source : Département du Loiret - 2025 ». BD TOPO : IGN |
@@ -51,8 +51,8 @@ fig = px.choropleth_map(ha, geojson=communes, locations="code_insee", color="ha_
 | `part_foret_fermee_ign` | part de la longueur dans la zone OLD à moins de 10 m d'une forêt fermée (BD TOPO) ; vide hors zone. Hypothèse : 10 m |
 | `emprise_voie_hyp_m` | largeur supposée de la voie : 3 m voie verte et piste, 6 m route, 5 m circulation apaisée. **Hypothèse** : la couche n'a pas de largeur |
 | `bande_hyp_m` | largeur supposée de la bande à débroussailler de chaque côté, depuis le bord de la voie : 10 m. **Hypothèse** : le code plafonne à 20 m, l'État fixe la largeur |
-| `ha_bande_brute` | surface de la bande dans la zone, sans rien retirer (les recouvrements comptent deux fois) : 134 ha en tout |
-| `ha_a_traiter` | surface une fois retirées l'emprise des voies et l'eau, chaque m² compté une fois : 92,7 ha en tout |
+| `ha_bande_brute` | surface de la bande dans la zone, sans rien retirer (les recouvrements comptent deux fois) |
+| `ha_a_traiter` | surface une fois retirées l'emprise des voies et l'eau, chaque m² compté une fois |
 | `ha_forte, ha_moyenne, ha_legere, ha_courante` | la même surface par niveau d'intervention selon la végétation (forte : forêt fermée ; moyenne : bois, forêt ouverte, peupleraie, haie ; légère : lande ; courante : le reste). **Hypothèse** de la démo |
 | `lat, lon` | milieu du morceau de tronçon |
 
@@ -62,7 +62,7 @@ Les trois GeoJSON (WGS 84) servent aux cartes : `old_zone` (les deux zones OLD�
 
 - les largeurs sont des **hypothèses** : bande de 10 m, emprise de 3 à 6 m. Une plaquette de la DDT du Loiret (janvier 2025) parle de 2,50 m de part et d'autre des voies ouvertes à la circulation motorisée ; une véloroute n'est pas motorisée. Faites-en un paramètre de l'appli et dites-le
 - le fichier marque la zone de la forêt d'Orléans « en attente de l'arrêté ministériel » : l'arrêté du 13 avril 2026 l'a classée depuis
-- 22,6 km des 54,8 km dans la zone ne sont pas ouverts (la V48 est en projet) : séparez ce qui est à faire maintenant de ce qui le sera
+- une partie des kilomètres dans la zone n'est pas ouverte (la V48 est en projet) : séparez ce qui est à faire maintenant de ce qui le sera
 - le gestionnaire est « non renseigné » pour la plupart des kilomètres dans la zone : qui paie n'est pas toujours dans la donnée
 - deux sources de végétation : les bois classés (DDT) et la BD TOPO (IGN). Elles ne disent pas la même chose, comparez-les
 - pour les cartes sans geopandas : `px.choropleth_map` avec un GeoJSON, et `map_layers` pour les tracés

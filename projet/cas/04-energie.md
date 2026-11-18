@@ -44,7 +44,7 @@ df = pd.read_parquet("data/projets/energie.parquet")
 - `eolien` arrive en texte : convertissez-le (`pd.to_numeric(df["eolien"], errors="coerce")`) avant tout calcul
 - MW est une puissance moyenne sur la demi-heure : une énergie en MWh, c'est MW × 0,5
 - les dates sont en UTC dans `date_heure`, en heure de Paris dans `heure` : raisonnez en heure de Paris, c'est celle de l'utilisateur
-- la production dépasse presque toujours la consommation : la question n'est pas « y a-t-il assez d'électricité ? » mais « quand le réseau est-il le moins sollicité ? »
+- la question n'est pas seulement « y a-t-il assez d'électricité ? » : regardez aussi la production et les échanges avec les régions voisines
 - Météo-France (températures) se joint sur la date si vous voulez expliquer la consommation
 
 ## Questions métier possibles

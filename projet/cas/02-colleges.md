@@ -10,7 +10,7 @@ Les collèges sont la première compétence du Département dans l'éducation :
 
 ## Le contexte
 
-Le code de l'éducation est clair : « Le département a la charge des collèges. Il en assure la construction, la reconstruction, l'extension, les grosses réparations, l'équipement et le fonctionnement » ([article L213-2](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006166574)). Le conseil départemental arrête aussi « la localisation des établissements, leur capacité d'accueil, leur secteur de recrutement et le mode d'hébergement des élèves », en tenant compte de critères d'équilibre démographique, économique et social (article L213-1). Le Loiret compte 70 collèges, 58 publics et 12 privés. Un collège qui gagne 150 élèves en six ans demande des travaux ; deux collèges voisins, l'un plein, l'autre qui se vide, posent la question du secteur.
+Le code de l'éducation est clair : « Le département a la charge des collèges. Il en assure la construction, la reconstruction, l'extension, les grosses réparations, l'équipement et le fonctionnement » ([article L213-2](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006166574)). Le conseil départemental arrête aussi « la localisation des établissements, leur capacité d'accueil, leur secteur de recrutement et le mode d'hébergement des élèves », en tenant compte de critères d'équilibre démographique, économique et social (article L213-1). Le Loiret compte 70 collèges, 58 publics et 12 privés. Un collège qui gagne beaucoup d'élèves en quelques années demande des travaux ; deux collèges voisins, l'un plein, l'autre qui se vide, posent la question du secteur.
 
 - **Qui utilise l'appli** : la direction du Département chargée des collèges, et l'élu qui propose la sectorisation au conseil départemental
 - **La décision à éclairer** : où programmer des travaux (extension, restructuration, cantine), et quel secteur redessiner, au vu des effectifs et de leur évolution
@@ -61,7 +61,7 @@ fig = px.choropleth_map(_2025, geojson=secteurs, locations="secteur_id",
 
 - le brevet vient de deux sources : jusqu'à la rentrée 2020, toutes séries avec une décimale ; à partir de 2021, série générale arrondie à l'unité. Une marche entre 2020 et 2021 peut venir de la méthode, pas des élèves
 - `rentree` 2020, c'est l'année 2020-2021, donc le brevet de 2021 : ne mélangez pas rentrée et session
-- public et privé n'accueillent pas les mêmes élèves (IPS moyen de 122 dans le privé contre 97,5 dans le public en 2025) : un taux de réussite plus haut ne dit pas que le collège « fait » la réussite
+- public et privé n'accueillent pas les mêmes élèves : un taux de réussite plus haut ne dit pas que le collège « fait » la réussite
 - un collège avec 40 candidats au brevet peut gagner 10 points d'une année sur l'autre : ne classez pas sur une seule année
 - les effectifs commencent à la rentrée 2019 ; 2016 à 2018 n'ont que l'IPS et le brevet
 - la carte des secteurs : `featureidkey="properties.secteur_id"` dans `px.choropleth_map`
