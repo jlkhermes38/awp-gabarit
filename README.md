@@ -27,7 +27,7 @@ Les fichiers de `fil_rouge/` sont des squelettes : un énoncé en tête, des `T
 | 2 | 12h30 | `fil_rouge/app_streamlit.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1` |
 | 3 | 14h00 | le même, en ligne | share.streamlit.io, fichier d'entrée `fil_rouge/app_streamlit.py` |
 | 4 | 15h00 | `fil_rouge/app_dash.py` | `uv run python fil_rouge/app_dash.py` |
-| 5 | 16h15 | `fil_rouge/train.py`, `api.py`, `client.py` | `uv run python fil_rouge/train.py`, puis `uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload`, puis `uv run streamlit run fil_rouge/client.py --server.address 127.0.0.1` |
+| 5 | 16h15 | `fil_rouge/api.py`, puis `fil_rouge/app_api.py` (ou votre appli de l'exo 2 ou 4) ; bonus : `/predict` et `client.py` | `uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload`, puis, dans un second terminal, `uv run streamlit run fil_rouge/app_api.py --server.address 127.0.0.1` |
 | 6 | 17h00 | l'appli de l'exo 2, puis `fil_rouge/mcp_server.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.enableAgentApi=true --server.address 127.0.0.1`, puis `uv run python fil_rouge/mcp_server.py` (en HTTP : `MCP_TRANSPORT=http uv run python fil_rouge/mcp_server.py`, sur `http://127.0.0.1:8001/mcp`) |
 
 `contexte/README.md` : les tips, dans l'ordre de la journée (documentation en Markdown, `llms.txt`,

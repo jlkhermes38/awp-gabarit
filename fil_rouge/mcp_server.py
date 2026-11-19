@@ -29,7 +29,7 @@ mcp = FastMCP("echecs", host=HOTE, port=int(os.environ.get("PORT", "8001")), tra
 
 # TODO 1. Une fonction qui appelle l'API et lève une erreur si la réponse n'est pas un succès
 # TODO 2. @mcp.tool() : mes pires ouvertures pour une cadence (GET /ouvertures)
-# TODO 3. @mcp.tool() : mes chances de victoire dans une situation donnée (POST /predict)
+# TODO 3. @mcp.tool() : mes chances de victoire dans une situation donnée (POST /predict, si vous avez fait le bonus)
 
 if __name__ == "__main__":
     # Derrière un tunnel : MCP_TUNNEL=1 MCP_TRANSPORT=http uv run python …, puis npx localtunnel --port 8001
