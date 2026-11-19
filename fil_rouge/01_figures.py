@@ -1,4 +1,4 @@
-"""Exo 1 : trois figures. Fin à 11h00.
+"""Exo 1 : trois figures. Environ 25 min.
 
 Question : où ce joueur perd-il des points ?
 À produire : trois figures Plotly dont le titre dit ce qu'elles montrent.

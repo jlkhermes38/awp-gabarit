@@ -1,4 +1,4 @@
-"""Exo 4 : la même appli en Dash, avec un drill-down. Fin à 14h50.
+"""Exo 4 : la même appli en Dash, avec un drill-down. Environ 25 min.
 
 Question : quelles ouvertures coûtent des points, et dans quelles parties ?
 À produire : un curseur (parties minimum) et le graphique des familles ; un clic sur une barre

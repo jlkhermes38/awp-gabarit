@@ -4,7 +4,7 @@ Un assistant de code écrit mieux quand il lit la bonne documentation. Chaque ti
 source ou un outil au bon moment, et chaque exo se termine de la même façon : vous expliquez les lignes
 que l'assistant a écrites, ligne par ligne. Les URL et les commandes ont été vérifiées le 17 novembre 2026.
 
-## Exo 1, lire mes parties (fin à 11h00)
+## Exo 1, lire mes parties (environ 25 min)
 
 Donnez à l'assistant `data/echecs/LISEZMOI.md` et `data/echecs/conseils.md` avant sa première question.
 Le premier décrit chaque colonne et ses pièges, le second explique comment ChessXP juge un coup.
@@ -15,7 +15,7 @@ Sans eux, il invente le sens des colonnes.
 - Toute la référence : https://plotly.com/python-api-reference/
 - L'index de la doc Plotly pour un assistant : https://plotly.com/llms.txt
 
-## Exo 2, Streamlit (fin à 12h30)
+## Exo 2, Streamlit (environ 1 h)
 
 La doc Streamlit existe en Markdown : ajoutez `.md` à l'URL d'une page.
 
@@ -37,12 +37,12 @@ La commande crée `.agents/skills/` et `.claude/skills/` dans le projet. Présen
 
 Un dernier réflexe : demandez deux versions d'un même morceau, gardez-en une et dites pourquoi.
 
-## Exo 3, mise en ligne (fin à 14h00)
+## Exo 3, mise en ligne (environ 25 min)
 
 Rien de nouveau à donner à l'assistant. Les réglages se font sur https://share.streamlit.io : votre
 dépôt, la branche `main`, le fichier d'entrée `fil_rouge/app_streamlit.py`.
 
-## Exo 4, Dash (fin à 14h50)
+## Exo 4, Dash (environ 25 min)
 
 Le fichier `AGENTS.md` à la racine de ce dépôt est la base fournie par Plotly pour les assistants de
 code Dash, avec la liste des erreurs que les assistants font le plus souvent. Claude Code le lit tout
@@ -57,7 +57,7 @@ Comme pour Streamlit, la doc Dash a un index et des pages en Markdown :
 
 Faites la même demande avec et sans `AGENTS.md`, et comparez le code obtenu.
 
-## Exo 5, l'API et l'appli qui l'appelle (fin à 16h15)
+## Exo 5, l'API et l'appli qui l'appelle (environ 45 min)
 
 FastAPI n'a ni `llms.txt` ni pages en `.md`. Collez l'adresse de la page ou son contenu.
 
@@ -70,7 +70,7 @@ FastAPI n'a ni `llms.txt` ni pages en `.md`. Collez l'adresse de la page ou son 
 Une fois l'API lancée, la page `http://127.0.0.1:8000/docs` liste vos routes et vous laisse les essayer.
 Collez-la dans votre demande quand vous écrivez `app_api.py`.
 
-## Exo 6, MCP (fin à 17h00)
+## Exo 6, MCP (environ 20 min)
 
 MCP est le protocole par lequel un LLM appelle des outils. Le LLM est le client, votre code est le
 serveur. Introduction : https://modelcontextprotocol.io/ et le SDK Python
