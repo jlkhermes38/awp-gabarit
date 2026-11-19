@@ -25,7 +25,8 @@ app.layout = html.Div(
     ]
 )
 
-# TODO 4. callback : value de "n-min" -> figure de "familles" (px.bar de familles(df, n_min), la pire en haut)
+# TODO 4. callback : value de "n-min" -> figure de "familles" (px.bar de familles(df, n_min), la pire en haut).
+#         Nommez-le autrement que familles (maj_familles par exemple) : sinon il masque la fonction de data.py
 # TODO 5. callback : clickData de "familles" -> rowData de "parties" (les parties de cette famille)
 # TODO 6. callback : selectedRows de "parties" -> rowData de "coups" (les coups jugés de cette partie)
 
