@@ -1,4 +1,4 @@
-"""Bonus de l'exo 5 : une appli Streamlit « et si ? » qui appelle POST /predict.
+"""Bonus de l'exo 5 : une appli Streamlit « et si ? » qui appelle POST /predict.
 
 Question : et si je jouais plus tard, ou avec les noirs ?
 À produire : un formulaire (couleur, cadence, écart d'Elo, heure), un requests.post vers /predict,
@@ -27,8 +27,15 @@ with st.form("simulation"):
 
 if envoyer:
     corps = {"couleur": couleur, "cadence": cadence, "ecart_elo": ecart, "heure": heure}
-    r = requests.post(f"{API}/predict", json=corps, timeout=10)
-    r.raise_for_status()
+    try:
+        r = requests.post(f"{API}/predict", json=corps, timeout=10)
+        r.raise_for_status()
+    except requests.RequestException as e:
+        st.error(
+            f"L'API n'a pas répondu sur {API}, ou a refusé la requête. Lancez uvicorn, puis réessayez."
+        )
+        st.caption(str(e))
+        st.stop()
     st.metric("Chances de victoire", f"{r.json()['proba_victoire']:.0%}")
     mesures = Path(__file__).parent / "metriques.json"  # écrit par train.py
     if mesures.exists():

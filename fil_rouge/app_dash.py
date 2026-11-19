@@ -1,8 +1,8 @@
-"""Exo 4 : la même appli en Dash, avec un drill-down. Fin à 15h00.
+"""Exo 4 : la même appli en Dash, avec un drill-down. Fin à 14h50.
 
 Question : quelles ouvertures coûtent des points, et dans quelles parties ?
-À produire : un clic sur une barre d'ouverture liste les parties, un clic sur une partie liste
-les coups jugés mauvais, dans deux AG Grid.
+À produire : un curseur (parties minimum) et le graphique des familles ; un clic sur une barre
+liste les parties, un clic sur une partie liste les coups jugés mauvais, dans deux AG Grid.
 Lancer : uv run python fil_rouge/app_dash.py   (http://127.0.0.1:8050)
 """
 
@@ -21,7 +21,9 @@ PARTIES = "partie_id date_jeu ouverture_nom couleur resultat elo_joueur elo_adve
 
 def grille(id, champs):
     colonnes = [{"field": c} for c in champs.split()]
-    options = {"rowSelection": {"mode": "singleRow"}}
+    options = {
+        "rowSelection": {"mode": "singleRow", "enableClickSelection": True}
+    }  # clic sur la ligne
     return dag.AgGrid(id=id, columnSize="sizeToFit", columnDefs=colonnes, dashGridOptions=options)
 
 

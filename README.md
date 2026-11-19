@@ -26,7 +26,7 @@ Les fichiers de `fil_rouge/` sont des squelettes : un énoncé en tête, des `T
 | 1 | 11h00 | `fil_rouge/data.py`, `fil_rouge/01_figures.py` | `uv run python fil_rouge/01_figures.py` |
 | 2 | 12h30 | `fil_rouge/app_streamlit.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1` |
 | 3 | 14h00 | le même, en ligne | share.streamlit.io, fichier d'entrée `fil_rouge/app_streamlit.py` |
-| 4 | 15h00 | `fil_rouge/app_dash.py` | `uv run python fil_rouge/app_dash.py` |
+| 4 | 14h50 | `fil_rouge/app_dash.py` | `uv run python fil_rouge/app_dash.py` |
 | 5 | 16h15 | `fil_rouge/api.py`, puis `fil_rouge/app_api.py` (ou votre appli de l'exo 2 ou 4) ; bonus : `/predict` et `client.py` | `uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload`, puis, dans un second terminal, `uv run streamlit run fil_rouge/app_api.py --server.address 127.0.0.1` |
 | 6 | 17h00 | l'appli de l'exo 2, puis `fil_rouge/mcp_server.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.enableAgentApi=true --server.address 127.0.0.1`, puis `uv run python fil_rouge/mcp_server.py` (en HTTP : `MCP_TRANSPORT=http uv run python fil_rouge/mcp_server.py`, sur `http://127.0.0.1:8001/mcp`) |
 
@@ -34,14 +34,25 @@ Les fichiers de `fil_rouge/` sont des squelettes : un énoncé en tête, des `T
 `streamlit skills`, brancher un serveur MCP). Chaque exo se termine par la lecture du code que
 l'assistant a écrit : vous expliquez les lignes.
 
-Bloqué : la branche `solutions` de ce dépôt contient le fil rouge terminé, mise à jour à la
-fin de chaque exo. Votre copie ne la suit pas, ajoutez ce dépôt comme second remote :
+Bloqué : la branche `solutions` de ce dépôt contient le fil rouge terminé. Votre copie ne la
+suit pas, ajoutez ce dépôt comme second remote, une seule fois :
 
 ```bash
-git remote add prof https://github.com/jlkhermes38/awp-gabarit   # une seule fois
+git remote add prof https://github.com/jlkhermes38/awp-gabarit
 git fetch prof
-git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 ```
+
+Puis récupérez les fichiers de l'exo où vous êtes bloqué. Les solutions s'appuient sur
+`data.py` et `figures.py` : un seul fichier ne suffit pas. Ces fichiers remplacent les vôtres,
+commitez votre travail avant.
+
+| Exo | Commande |
+|---|---|
+| 1 | `git checkout prof/solutions -- fil_rouge/data.py fil_rouge/figures.py fil_rouge/01_figures.py` |
+| 2 et 3 | `git checkout prof/solutions -- fil_rouge/data.py fil_rouge/figures.py fil_rouge/app_streamlit.py` |
+| 4 | `git checkout prof/solutions -- fil_rouge/data.py fil_rouge/figures.py fil_rouge/app_dash.py` |
+| 5 | `git checkout prof/solutions -- fil_rouge/data.py fil_rouge/api.py fil_rouge/app_api.py fil_rouge/client.py` |
+| 6 | `git checkout prof/solutions -- fil_rouge/mcp_server.py` (l'API de l'exo 5 doit tourner) |
 
 `AGENTS.md` est la base Dash fournie par Plotly, pour votre assistant de code.
 
@@ -52,6 +63,7 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 - `projet/app.py` : le point de départ, `uv run streamlit run projet/app.py --server.address 127.0.0.1`
 - `projet/llm.py` : un client compatible OpenAI (Ollama, Groq, Google AI Studio). Copiez `.streamlit/secrets.toml.example` en `.streamlit/secrets.toml`, jamais versionné
 - `tests/test_app.py` : les tests du dépôt, `uv run pytest -q`
+- `sources/` : les scripts qui ont construit `data/projets/`, et l'adresse exacte de chaque source, couches du Loiret comprises ([`sources/README.md`](sources/README.md))
 
 | Cas | Fichier | Source | Licence |
 |---|---|---|---|
