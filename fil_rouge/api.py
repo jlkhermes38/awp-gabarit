@@ -1,8 +1,9 @@
-"""Exo 5 : le service FastAPI. Fin à 16h15.
+"""Exo 5 : le service FastAPI. Fin à 16h05.
 
-Question : mes parties et mon modèle, derrière une API que n'importe quel client peut appeler.
-À produire : GET /parties, GET /ouvertures et POST /predict (corps validé par Pydantic).
-Le modèle est chargé une fois, au démarrage. Lancez train.py d'abord.
+Question : mes parties derrière une API que n'importe quel client peut appeler (votre appli, puis l'agent de l'exo 6).
+À produire : GET /ouvertures et GET /parties, paramètres validés (une cadence inconnue renvoie 422, pas une liste vide).
+Ensuite : app_api.py, ou votre appli de l'exo 2 ou de l'exo 4, appelle cette API au lieu de lire les CSV.
+Bonus : POST /predict avec le modèle fourni (fil_rouge/model.joblib, déjà entraîné), puis client.py.
 Lancer : uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload
 Documentation interactive : http://127.0.0.1:8000/docs
 """
@@ -22,8 +23,15 @@ model = joblib.load(Path(__file__).parent / "model.joblib")
 df = load_data()  # modèle et données chargés une fois, au démarrage
 
 
+Cadence = Literal["bullet", "blitz", "rapid"]  # une autre valeur : 422, pas une liste vide
+
+
 @app.get("/parties")
-def parties(cadence: str = "", couleur: str = "", limit: int = Query(20, ge=1, le=500)):
+def parties(
+    cadence: Cadence | None = None,
+    couleur: Literal["white", "black"] | None = None,
+    limit: int = Query(20, ge=1, le=500),
+):
     vue = df
     if cadence:
         vue = vue[vue["cadence"] == cadence]
@@ -34,7 +42,7 @@ def parties(cadence: str = "", couleur: str = "", limit: int = Query(20, ge=1, l
 
 
 @app.get("/ouvertures")
-def ouvertures(cadence: str | None = None, min_n: int = 30):
+def ouvertures(cadence: Cadence | None = None, min_n: int = Query(30, ge=1)):
     vue = df if cadence is None else df[df["cadence"] == cadence]
     return familles(vue, min_n).to_dict("records")
 

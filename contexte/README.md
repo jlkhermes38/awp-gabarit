@@ -57,16 +57,18 @@ Comme pour Streamlit, la doc Dash a un index et des pages en Markdown :
 
 Faites la même demande avec et sans `AGENTS.md`, et comparez le code obtenu.
 
-## Exo 5, FastAPI et le client (fin à 16h15)
+## Exo 5, l'API et l'appli qui l'appelle (fin à 16h15)
 
 FastAPI n'a ni `llms.txt` ni pages en `.md`. Collez l'adresse de la page ou son contenu.
 
 - Le tutoriel : https://fastapi.tiangolo.com/tutorial/
-- Le corps d'une requête, avec Pydantic : https://fastapi.tiangolo.com/tutorial/body/
 - Les paramètres de requête : https://fastapi.tiangolo.com/tutorial/query-params/
+- Les valider (bornes, `Query`) : https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
+- Côté appli, `requests` : https://requests.readthedocs.io/en/latest/user/quickstart/
+- Bonus `/predict`, le corps d'une requête avec Pydantic : https://fastapi.tiangolo.com/tutorial/body/
 
 Une fois l'API lancée, la page `http://127.0.0.1:8000/docs` liste vos routes et vous laisse les essayer.
-Collez-la dans votre demande quand vous écrivez `client.py`.
+Collez-la dans votre demande quand vous écrivez `app_api.py`.
 
 ## Exo 6, MCP (fin à 17h00)
 
@@ -128,6 +130,9 @@ l'éditeur : il lui faut une URL publique en HTTPS, port 443. `127.0.0.1` et st
   (`MCP_TUNNEL=1` : FastMCP accepte alors le nom d'hôte du tunnel).
 - Sur un hébergeur (Render, Cloud Run), la variable `PORT` est fixée : le serveur écoute alors sur `0.0.0.0:$PORT`.
   Sans authentification, n'importe qui avec l'URL appelle vos outils.
+- L'appli Streamlit déployée sur Community Cloud (avec `enableAgentApi = true` dans `.streamlit/config.toml`) :
+  le serveur MCP est sur `https://<appli>.streamlit.app/~/+/_stcore/agent/mcp`. Sans `/~/+`, la plateforme
+  répond par sa page de connexion. L'appli est publique, son API agent aussi.
 
 Un LLM choisit un outil d'après son nom, sa docstring et ses arguments. Si l'outil est mal choisi, relisez
 d'abord la docstring.
