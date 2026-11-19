@@ -1,4 +1,4 @@
-"""Exo 5, suite : l'appli ne lit plus les CSV, elle demande à l'API. Fin à 16h05.
+"""Exo 5, suite : l'appli ne lit plus les CSV, elle demande à l'API. Fin à 16h15.
 
 Question : la même appli qu'à l'exo 2, mais ses chiffres viennent de l'API.
 À produire : une barre latérale (cadence, parties minimum), la figure des familles depuis GET /ouvertures,

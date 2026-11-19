@@ -42,7 +42,7 @@ Un dernier réflexe : demandez deux versions d'un même morceau, gardez-en une 
 Rien de nouveau à donner à l'assistant. Les réglages se font sur https://share.streamlit.io : votre
 dépôt, la branche `main`, le fichier d'entrée `fil_rouge/app_streamlit.py`.
 
-## Exo 4, Dash (fin à 15h00)
+## Exo 4, Dash (fin à 14h50)
 
 Le fichier `AGENTS.md` à la racine de ce dépôt est la base fournie par Plotly pour les assistants de
 code Dash, avec la liste des erreurs que les assistants font le plus souvent. Claude Code le lit tout

@@ -1,4 +1,4 @@
-"""Exo 5 : le service FastAPI. Fin à 16h05.
+"""Exo 5 : le service FastAPI. Fin à 16h15.
 
 Question : mes parties derrière une API que n'importe quel client peut appeler (votre appli, puis l'agent de l'exo 6).
 À produire : GET /ouvertures et GET /parties, paramètres validés (une cadence inconnue renvoie 422, pas une liste vide).

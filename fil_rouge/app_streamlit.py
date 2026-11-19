@@ -3,6 +3,8 @@
 Question : l'appli que ce joueur ouvrirait chaque semaine pour savoir quoi travailler.
 À produire : une barre latérale (cadence, période, couleur), trois st.metric, deux figures
 en colonnes. Le titre de la page dit la question, pas « Dashboard ».
+Colonnes utilisées : cadence (dont « aucune »), date_jeu (datetime), couleur (white ou black),
+score, gaffes_joueur. Si votre load_data() ne les donne pas ainsi, corrigez-la.
 Lancer : uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1
 """
 
@@ -12,6 +14,7 @@ from data import load_coups, load_data
 from figures import fig_familles, fig_phases, pct
 
 st.set_page_config(page_title="Mes parties d'échecs", layout="wide")
+print("relance")  # regardez le terminal à chaque clic
 COULEURS = {"toutes": None, "blancs": "white", "noirs": "black"}
 
 

@@ -9,6 +9,8 @@ df = pd.read_parquet("data/projets/energie.parquet")
 
 Chaque cas a sa page dans [`projet/cas/`](../../projet/cas/README.md) : le contexte, qui utilise l'appli, la décision, chaque colonne expliquée, les pièges et des questions métier possibles. `summary.json` donne, pour chaque fichier, les colonnes, la période et une ligne réelle.
 
+D'où vient chaque fichier, avec l'adresse exacte de chaque couche du Département du Loiret : [`sources/README.md`](../../sources/README.md), et les scripts qui les ont construits.
+
 | Cas | Fichier | Lignes | Période | Source | Licence | Page du cas |
 |---|---|---|---|---|---|---|
 | 1 · OLD et véloroutes du Loiret | [`old_veloroutes.parquet`](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_veloroutes.parquet) (0,08 Mo), cartes : [`old_veloroutes.geojson`](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_veloroutes.geojson), [`old_communes.geojson`](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_communes.geojson), [`old_zone.geojson`](https://github.com/jlkhermes38/awp-gabarit/raw/main/data/projets/old_zone.geojson) | 1 564 morceaux de tronçon | tracés 11/2025, zonage OLD 02/2026 | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), IGN BD TOPO | Licence Ouverte 2.0 ; véloroutes : « Source : Département du Loiret » | [01-old-veloroutes.md](../../projet/cas/01-old-veloroutes.md) |
