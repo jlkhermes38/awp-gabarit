@@ -10,7 +10,7 @@ import plotly.express as px  # noqa: F401
 import streamlit as st
 
 DATA = Path(__file__).resolve().parents[1] / "data" / "projets"
-CAS = "immobilier"  # energie, securite_routiere, immobilier, airbnb_lyon, olist, territoire_loiret
+CAS = "immobilier"  # old_veloroutes, colleges_risques, energie, securite_routiere, immobilier, airbnb_lyon, olist, territoire_loiret
 
 
 @st.cache_data

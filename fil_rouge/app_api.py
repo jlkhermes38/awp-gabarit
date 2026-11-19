@@ -1,6 +1,10 @@
 """Exo 5, suite : l'appli ne lit plus les CSV, elle demande à l'API. Fin à 16h05.
 
-Lancez api.py d'abord : uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000
+Question : la même appli qu'à l'exo 2, mais ses chiffres viennent de l'API.
+À produire : une barre latérale (cadence, parties minimum), la figure des familles depuis GET /ouvertures,
+les dix dernières parties depuis GET /parties, et un message lisible si l'API ne répond pas.
+Vous pouvez aussi modifier directement votre app_streamlit.py ou votre app_dash.py.
+Lancez api.py d'abord.
 Lancer : uv run streamlit run fil_rouge/app_api.py --server.address 127.0.0.1
 """
 
