@@ -128,6 +128,9 @@ l'éditeur : il lui faut une URL publique en HTTPS, port 443. `127.0.0.1` et st
   (`MCP_TUNNEL=1` : FastMCP accepte alors le nom d'hôte du tunnel).
 - Sur un hébergeur (Render, Cloud Run), la variable `PORT` est fixée : le serveur écoute alors sur `0.0.0.0:$PORT`.
   Sans authentification, n'importe qui avec l'URL appelle vos outils.
+- L'appli Streamlit déployée sur Community Cloud (avec `enableAgentApi = true` dans `.streamlit/config.toml`) :
+  le serveur MCP est sur `https://<appli>.streamlit.app/~/+/_stcore/agent/mcp`. Sans `/~/+`, la plateforme
+  répond par sa page de connexion. L'appli est publique, son API agent aussi.
 
 Un LLM choisit un outil d'après son nom, sa docstring et ses arguments. Si l'outil est mal choisi, relisez
 d'abord la docstring.
