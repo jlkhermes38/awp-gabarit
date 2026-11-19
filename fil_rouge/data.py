@@ -1,4 +1,4 @@
-"""Exo 1 : lire mes parties d'échecs. Fin à 11h00.
+"""Exo 1 : lire mes parties d'échecs. Environ 25 min.
 
 Question : je joue depuis 2023, je stagne, qu'est-ce que je devrais travailler ?
 À produire : un DataFrame propre, prêt pour les figures de l'exo 1 et pour l'appli de l'exo 2.
