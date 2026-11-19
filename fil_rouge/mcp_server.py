@@ -1,4 +1,4 @@
-"""Exo 6 : votre propre serveur MCP. Fin à 17h00.
+"""Exo 6 : votre propre serveur MCP. Environ 20 min.
 
 Question : un LLM doit pouvoir interroger mes parties.
 À produire : un serveur FastMCP de deux ou trois outils au-dessus de votre API (api.py doit

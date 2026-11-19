@@ -1,4 +1,4 @@
-"""Exo 2 : l'appli Streamlit du fil rouge. Fin à 12h30.
+"""Exo 2 : l'appli Streamlit du fil rouge. Environ 1 h.
 
 Question : l'appli que ce joueur ouvrirait chaque semaine pour savoir quoi travailler.
 À produire : une barre latérale (cadence, période, couleur), trois st.metric, deux figures
