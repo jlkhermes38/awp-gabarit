@@ -1,4 +1,4 @@
-"""Exo 5 : une appli Streamlit « et si ? » qui appelle votre API. Fin à 16h15.
+"""Bonus de l'exo 5 : une appli Streamlit « et si ? » qui appelle POST /predict.
 
 Question : et si je jouais plus tard, ou avec les noirs ?
 À produire : un formulaire (couleur, cadence, écart d'Elo, heure), un requests.post vers /predict,

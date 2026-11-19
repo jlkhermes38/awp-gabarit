@@ -27,7 +27,7 @@ Les fichiers de `fil_rouge/` sont des squelettes : un énoncé en tête, des `T
 | 2 | 12h30 | `fil_rouge/app_streamlit.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.address 127.0.0.1` |
 | 3 | 14h00 | le même, en ligne | share.streamlit.io, fichier d'entrée `fil_rouge/app_streamlit.py` |
 | 4 | 15h00 | `fil_rouge/app_dash.py` | `uv run python fil_rouge/app_dash.py` |
-| 5 | 16h15 | `fil_rouge/train.py`, `api.py`, `client.py` | `uv run python fil_rouge/train.py`, puis `uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload`, puis `uv run streamlit run fil_rouge/client.py --server.address 127.0.0.1` |
+| 5 | 16h15 | `fil_rouge/api.py`, puis `fil_rouge/app_api.py` (ou votre appli de l'exo 2 ou 4) ; bonus : `/predict` et `client.py` | `uv run uvicorn api:app --app-dir fil_rouge --host 127.0.0.1 --port 8000 --reload`, puis, dans un second terminal, `uv run streamlit run fil_rouge/app_api.py --server.address 127.0.0.1` |
 | 6 | 17h00 | l'appli de l'exo 2, puis `fil_rouge/mcp_server.py` | `uv run streamlit run fil_rouge/app_streamlit.py --server.enableAgentApi=true --server.address 127.0.0.1`, puis `uv run python fil_rouge/mcp_server.py` (en HTTP : `MCP_TRANSPORT=http uv run python fil_rouge/mcp_server.py`, sur `http://127.0.0.1:8001/mcp`) |
 
 `contexte/README.md` : les tips, dans l'ordre de la journée (documentation en Markdown, `llms.txt`,
@@ -47,19 +47,21 @@ git checkout prof/solutions -- fil_rouge/app_streamlit.py      # un seul fichier
 
 ## Vendredi, le projet
 
-- `data/projets/` : un Parquet par cas, six cas en tout. Sources, licences, périodes et une ligne d'exemple dans `summary.json`
+- `data/projets/` : un ou plusieurs Parquet par cas, huit cas en tout, et des GeoJSON pour les cartes des cas 1 et 2. **Tout est dans [`data/projets/LISEZMOI.md`](data/projets/LISEZMOI.md)** : fichiers, lignes, périodes, colonnes, sources et licences. Une ligne réelle par fichier dans `summary.json`
+- `projet/cas/` : **une page par cas** ([index](projet/cas/README.md)) : le contexte, qui décide quoi, les colonnes expliquées, les pièges et des questions métier possibles
 - `projet/app.py` : le point de départ, `uv run streamlit run projet/app.py --server.address 127.0.0.1`
 - `projet/llm.py` : un client compatible OpenAI (Ollama, Groq, Google AI Studio). Copiez `.streamlit/secrets.toml.example` en `.streamlit/secrets.toml`, jamais versionné
 - `tests/test_app.py` : les tests du dépôt, `uv run pytest -q`
 
-| Cas | Fichier | Licence |
-|---|---|---|
-| Énergie | `energie.parquet` | Licence Ouverte 2.0 |
-| Sécurité routière | `securite_routiere.parquet` | Licence Ouverte 2.0 |
-| Immobilier | `immobilier.parquet` | Licence Ouverte 2.0 |
-| Location courte durée | `airbnb_lyon.parquet`, `airbnb_lyon_reviews.parquet` | CC BY 4.0 (Inside Airbnb) |
-| E-commerce | `olist.parquet`, `olist_commentaires_negatifs.parquet` | CC BY-NC-SA 4.0 (Olist) |
-| Territoire du Loiret | `territoire_loiret.parquet` | Licence Ouverte 2.0 |
+| Cas | Fichier | Source | Licence |
+|---|---|---|---|
+| OLD et véloroutes | [`old_veloroutes.parquet`](data/projets/old_veloroutes.parquet) + 3 GeoJSON | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm) | Licence Ouverte 2.0, « Source : Département du Loiret » |
+| Collèges et risques | [`colleges_risques.parquet`](data/projets/colleges_risques.parquet), avec `colleges`, `risques_communes`, `risques_catnat` et 2 GeoJSON | [GéoLoiret](https://geoloiret.loiret-numerique.fr/apps/referentiel/catalogue_donnees.htm), [data.education.gouv.fr](https://data.education.gouv.fr), [Géorisques](https://www.georisques.gouv.fr/) | Licence Ouverte 2.0 |
+| Énergie | [`energie.parquet`](data/projets/energie.parquet) | [RTE, éCO2mix régional](https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-regional-cons-def/) | Licence Ouverte 2.0 |
+| Sécurité routière | [`securite_routiere.parquet`](data/projets/securite_routiere.parquet) | [ONISR, accidents corporels](https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2025/) | Licence Ouverte 2.0 |
+| Immobilier | [`immobilier.parquet`](data/projets/immobilier.parquet) | [DVF géolocalisées](https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/) | Licence Ouverte 2.0 |
+| Location courte durée | [`airbnb_lyon.parquet`](data/projets/airbnb_lyon.parquet), [`airbnb_lyon_reviews.parquet`](data/projets/airbnb_lyon_reviews.parquet) | [Inside Airbnb](https://insideairbnb.com/get-the-data/) | CC BY 4.0 |
+| E-commerce | [`olist.parquet`](data/projets/olist.parquet), [`olist_commentaires_negatifs.parquet`](data/projets/olist_commentaires_negatifs.parquet) | [Olist sur Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) | CC BY-NC-SA 4.0 |
+| Territoire du Loiret | [`territoire_loiret.parquet`](data/projets/territoire_loiret.parquet) | [Département du Loiret](https://www.data.gouv.fr/organizations/departement-du-loiret/) | Licence Ouverte 2.0 |
 
-Un cas peut être pris par deux groupes, à condition que leurs décisions diffèrent. Vous pouvez aussi
-apporter votre propre jeu de données, validé au cadrage : licence, taille, aucune donnée personnelle.
+Un cas peut être pris par deux groupes, à condition que leurs décisions diffèrent. Vous pouvez aussi apporter votre propre jeu de données (licence qui permet la réutilisation, moins de 50 Mo, aucune donnée personnelle), ou des données de votre entreprise : l'accord écrit de votre tuteur, des données anonymisées, un dépôt GitHub privé partagé avec moi, et une URL publique qui ne montre qu'un échantillon anonymisé ou des données fictives de même forme. Aucune donnée d'entreprise n'est envoyée à une API de LLM externe sans accord : sinon, Ollama en local. Je valide au cadrage de vendredi 9h45.
