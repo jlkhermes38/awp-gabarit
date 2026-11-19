@@ -1,9 +1,10 @@
-"""Exo 5 : la probabilité de gagner une partie. Fin à 16h15.
+"""Facultatif. model.joblib est déjà fourni dans fil_rouge/ : pas besoin de lancer ce fichier
+pour le bonus /predict de l'exo 5. Il montre comment ce modèle a été entraîné.
 
 Question : avec quelle couleur, à quelle cadence, à quelle heure ce joueur gagne-t-il le plus ?
 À produire : un modèle de classification scikit-learn, son erreur mesurée par validation croisée,
 une référence à battre (toujours prédire la fréquence de victoire), et model.joblib enregistré
-à côté de ce fichier (jamais versionné).
+à côté de ce fichier (il remplace celui fourni).
 Lancer : uv run python fil_rouge/train.py
 """
 

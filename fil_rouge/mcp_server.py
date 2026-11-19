@@ -4,7 +4,8 @@ Question : un LLM doit pouvoir interroger mes parties.
 À produire : un serveur FastMCP de deux ou trois outils au-dessus de votre API (api.py doit
 tourner). Le LLM choisit un outil d'après son nom, sa docstring et ses arguments : soignez-les.
 Lancer : uv run python fil_rouge/mcp_server.py   (stdio : c'est le client LLM qui le lance,
-voir contexte/README.md pour le brancher)
+voir contexte/README.md pour le brancher). Lancé à la main, il n'affiche rien et attend un
+client : c'est normal. Pour tester : npx @modelcontextprotocol/inspector uv run python fil_rouge/mcp_server.py
 """
 
 import os
@@ -28,7 +29,8 @@ SECU = TransportSecuritySettings(enable_dns_rebinding_protection=False) if TUNNE
 mcp = FastMCP("echecs", host=HOTE, port=int(os.environ.get("PORT", "8001")), transport_security=SECU)
 
 # TODO 1. Une fonction qui appelle l'API et lève une erreur si la réponse n'est pas un succès
-# TODO 2. @mcp.tool() : mes pires ouvertures pour une cadence (GET /ouvertures)
+# TODO 2. @mcp.tool() : mes pires ouvertures pour une cadence (GET /ouvertures). Typez cadence avec
+#         Literal["bullet", "blitz", "rapid"] : le LLM voit alors les valeurs permises
 # TODO 3. @mcp.tool() : mes chances de victoire dans une situation donnée (POST /predict, si vous avez fait le bonus)
 
 if __name__ == "__main__":

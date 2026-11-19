@@ -28,6 +28,9 @@ def load_data() -> pd.DataFrame:
     Ajoutez : le résultat de mon point de vue en français, un score (1, 0,5 ou 0),
     l'année, l'heure, et l'écart d'Elo avec l'adversaire. Une cadence vide veut dire
     « aucune » : ne la laissez pas disparaître des filtres.
+    Les exos suivants lisent ces colonnes, gardez ces noms : date_jeu (en datetime),
+    resultat (victoire, nulle, défaite), score, annee, heure (UTC), ecart_elo
+    (Elo de l'adversaire moins le mien), cadence.
     """
     raise NotImplementedError("TODO exo 1")
 
